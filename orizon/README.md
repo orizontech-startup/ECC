@@ -43,3 +43,9 @@ bash scripts/orizon/install-global-profile.sh
 ```
 
 The installer is idempotent. It copies the portable company handbook to `~/.orizon-ecc/`, then writes a bounded Orizon block into the user-level Claude Code and Codex instruction files. This gives both harnesses a stable handbook path independent of plugin cache layout. It only activates the company profile for `orizontech-startup` repositories or projects explicitly identified as Orizon Tech.
+
+## Engineering OS v1
+
+The Orizon layer adds 12 corporate engineering roles on top of the ECC base agent roster, bringing this fork to 80 agent definitions. It also adds the `orizon-engineering-os` orchestration skill, task commands, an adaptive GitHub quality gate and automated upstream-sync validation.
+
+The private project registry, metrics, institutional knowledge and command center live in `orizontech-startup/orizon-engineering-os` so private project metadata is not stored in this public fork.
