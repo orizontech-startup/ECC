@@ -26,6 +26,9 @@ Then apply the ECC skills:
 - Load only relevant standards and specialists.
 - Project-local stricter rules take precedence.
 - Never claim successful validation without executed evidence.
+- Loading ECC does **not** reset or replace an active mission.
+- Preserve the current project, scope, roadmap, phase, working tree and already-authorized reversible work unless evidence proves they are invalid.
+- Do not ask the owner to re-authorize work that was already authorized merely because ECC was loaded.
 
 ## Minimal instruction for a new chat
 
@@ -40,6 +43,8 @@ If a user says this phrase, or a clear equivalent such as `veja o repo ECC`, `ab
 3. load `orizon/policies/ORIZON-ENGINEERING-OS-UNIVERSAL.md`;
 4. apply `orizon-engineering-profile` and `orizon-engineering-os`;
 5. identify the current project/repository and its local rules;
-6. continue the current task under the Orizon Engineering OS.
+6. preserve the active mission, frozen scope/roadmap, current phase and already-authorized reversible work;
+7. inspect any current working tree/uncommitted state;
+8. continue the current task from the exact point where it was before ECC activation, now under the Orizon Engineering OS.
 
-Do not require the user to remember or repeat a longer bootstrap prompt. Do not ask the user to restate the ECC instructions when this short trigger is used.
+Do not interpret ECC activation as a new target. Do not stop valid in-progress work only because ECC was loaded. Do not require the user to remember or repeat a longer bootstrap prompt, and do not ask the user to restate the ECC instructions when this short trigger is used.
