@@ -8,8 +8,8 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Resolve project Node version
-      id: node
+    - name: Resolve project runtime
+      id: runtime
       shell: bash
       run: |
         if [ -f .nvmrc ]; then
@@ -21,12 +21,20 @@ runs:
         else
           VERSION="22"
         fi
+        if [ -f bun.lock ] || [ -f bun.lockb ]; then MANAGER="bun";
+        elif [ -f pnpm-lock.yaml ]; then MANAGER="pnpm";
+        elif [ -f yarn.lock ]; then MANAGER="yarn";
+        else MANAGER="npm"; fi
         echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+        echo "manager=$MANAGER" >> "$GITHUB_OUTPUT"
     - name: Configure project Node version
       if: hashFiles('package.json') != ''
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ steps.node.outputs.version }}
+        node-version: ${{ steps.runtime.outputs.version }}
+    - name: Configure Bun
+      if: steps.runtime.outputs.manager == 'bun'
+      uses: oven-sh/setup-bun@v2
     - name: Run Orizon quality gate
       shell: bash
       env:
