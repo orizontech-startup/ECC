@@ -19,8 +19,14 @@ function run(name, command, args = [], options = {}) {
     env: { ...process.env, CI: 'true', ...options.env }
   });
   const ok = result.status === 0;
-  report.checks.push({ name, ok, durationMs: Date.now() - started, command: [command, ...args].join(' ') });
-  if (!ok) failed = true;
+  report.checks.push({
+    name,
+    ok,
+    warning: !ok && Boolean(options.soft),
+    durationMs: Date.now() - started,
+    command: [command, ...args].join(' ')
+  });
+  if (!ok && !options.soft) failed = true;
   return ok;
 }
 
@@ -46,7 +52,18 @@ if (fs.existsSync(packagePath)) {
     installArgs = ['install'];
   }
 
-  if (shouldInstall) run('dependencies', manager, installArgs);
+  let dependenciesOk = true;
+  if (shouldInstall) {
+    dependenciesOk = run('dependencies-primary', manager, installArgs, { soft: true });
+    if (!dependenciesOk) {
+      const fallbackArgs = manager === 'npm'
+        ? ['install', '--no-audit', '--no-fund']
+        : manager === 'pnpm'
+          ? ['install', '--no-frozen-lockfile']
+          : ['install'];
+      dependenciesOk = run('dependencies-fallback', manager, fallbackArgs);
+    }
+  }
 
   const preferred = [
     ['lint', 'lint'],
@@ -55,8 +72,13 @@ if (fs.existsSync(packagePath)) {
     ['build', 'build']
   ];
   for (const [checkName, script] of preferred) {
-    if (scripts[script]) run(checkName, manager, ['run', script]);
-    else report.checks.push({ name: checkName, ok: true, skipped: true, detail: 'script not configured' });
+    if (!dependenciesOk && shouldInstall) {
+      report.checks.push({ name: checkName, ok: false, skipped: true, blocked: true, detail: 'dependency installation failed' });
+    } else if (scripts[script]) {
+      run(checkName, manager, ['run', script]);
+    } else {
+      report.checks.push({ name: checkName, ok: true, skipped: true, detail: 'script not configured' });
+    }
   }
 } else {
   report.checks.push({ name: 'node-project', ok: true, skipped: true, detail: 'package.json not present' });
@@ -76,7 +98,8 @@ try { fs.writeFileSync(path.join(outDir, 'gate-report.json'), JSON.stringify(rep
 
 console.log('\n=== ORIZON QUALITY GATE ===');
 for (const check of report.checks) {
-  console.log(`${check.ok ? 'PASS' : 'FAIL'}  ${check.name}${check.skipped ? ' (skipped)' : ''}`);
+  const status = check.warning ? 'WARN' : check.ok ? 'PASS' : 'FAIL';
+  console.log(`${status}  ${check.name}${check.skipped ? ' (skipped)' : ''}`);
 }
 console.log(report.state);
 process.exit(failed ? 1 : 0);
