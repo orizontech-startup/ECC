@@ -12,7 +12,9 @@ ECC remains the upstream engineering engine. Orizon-specific policy is kept as a
 
 Primary surfaces:
 - `skills/orizon-engineering-profile/` — company-wide execution policy.
+- `skills/orizon-engineering-handbook/` — routes work to the relevant Orizon standards.
 - `skills/orizon-project-bootstrap/` — onboarding for new and brownfield projects.
+- `orizon/standards/` — reusable API, cloud, data, auth, mobile, security, QA, operations and go-live standards.
 - `commands/orizon.md` — manual activation entry point.
 - `orizon/PROJECT-PROFILE.template.md` — per-project context template.
 - `orizon/GO-LIVE-CHECKLIST.md` — production readiness baseline.

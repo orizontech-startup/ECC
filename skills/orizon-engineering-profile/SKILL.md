@@ -8,6 +8,7 @@ metadata:
 # Orizon Engineering Profile
 
 Use this skill for every engineering task in an Orizon Tech repository.
+Also apply `orizon-engineering-handbook` and load only the company standards relevant to the current task.
 
 ## Operating Model
 
