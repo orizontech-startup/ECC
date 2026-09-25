@@ -9,7 +9,7 @@ metadata:
 
 Use this skill together with `orizon-engineering-profile`.
 
-Read only the standards relevant to the task from `orizon/standards/`.
+Read only the standards relevant to the task from the plugin-root `orizon/standards/` directory. In Codex, resolve from `$PLUGIN_ROOT`; in Claude Code, resolve from `$CLAUDE_PLUGIN_ROOT`. From this skill directory, the relative path is `../../orizon/standards/`.
 
 ## Routing
 
