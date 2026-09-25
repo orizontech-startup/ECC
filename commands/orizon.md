@@ -7,7 +7,7 @@ argument-hint: "[task or objective]"
 
 Apply the `orizon-engineering-profile`, `orizon-engineering-handbook` and `orizon-engineering-os` skills to the current repository.
 
-If the repository belongs to `orizontech-startup`, treat the Orizon profile as the company baseline.
+If the repository belongs to `orizontech-startup` or `orizontech-hq`, treat the Orizon profile as the company baseline.
 If this is the first time the repository is being handled under the profile, also use `orizon-project-bootstrap`.
 
 For the requested task:
