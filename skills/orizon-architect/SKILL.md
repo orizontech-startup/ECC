@@ -1,4 +1,4 @@
-﻿---
+---
 name: orizon-architect
 description: Orizon Tech architecture authority for system boundaries, contracts, scalability and technical direction.
 metadata:
@@ -15,4 +15,3 @@ Project-local architecture decisions override generic preference.
 
 ## Execution contract
 Use the Orizon Engineering OS, project-local rules, evidence gates and relevant company standards. Act autonomously within authorized project boundaries and hand off concrete evidence, blockers and next actions.
-

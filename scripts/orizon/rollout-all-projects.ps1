@@ -23,8 +23,13 @@ foreach ($repo in $repos) {
   Push-Location $dir
   git checkout -b chore/orizon-engineering-os | Out-Host
   New-Item -ItemType Directory -Force -Path '.orizon','.github\workflows' | Out-Null
-  $project = [ordered]@{schema_version=1;repository=$repo;product=$name;owner='Orizon Tech';production_url='';staging_url='';stack=@();current_phase='bootstrap';assurance_class='E2';critical_flows=@();go_live_state='NOT_ASSESSED'}
-  $project | ConvertTo-Json -Depth 5 | Set-Content '.orizon\project.json' -Encoding utf8
+  if (-not (Test-Path '.orizon\project.json')) {
+    $project = [ordered]@{schema_version=1;repository=$repo;product=$name;owner='Orizon Tech';production_url='';staging_url='';stack=@();current_phase='bootstrap';assurance_class='E2';critical_flows=@();go_live_state='NOT_ASSESSED'}
+    $json = $project | ConvertTo-Json -Depth 5
+    [System.IO.File]::WriteAllText((Join-Path (Resolve-Path '.orizon').Path 'project.json'), $json + [Environment]::NewLine, (New-Object System.Text.UTF8Encoding($false)))
+  } else {
+    Write-Host 'Preserving existing .orizon/project.json'
+  }
   $workflow = @'
 name: Orizon Engineering Gate
 on:
