@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "fields": ["project","task_id","mission_type","started_at","completed_at","wall_clock_minutes","agents_used","retries","tests_run","tests_passed","runtime_validated","security_gate","go_live_state","post_release_regression","notes"],
+  "north_star_metrics": ["request_to_production_time","first_pass_success_rate","regression_rate","go_live_blocker_rate","rework_rate","cost_per_completed_task"]
+}
