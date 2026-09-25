@@ -1,0 +1,22 @@
+name: Orizon Reusable Quality Gate
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        required: false
+        type: string
+        default: "20"
+permissions:
+  contents: read
+jobs:
+  quality-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+      - name: Fetch Orizon Engineering OS
+        run: git clone --depth 1 https://github.com/orizontech-startup/ECC.git "$RUNNER_TEMP/orizon-ecc"
+      - name: Run Orizon quality gate
+        run: node "$RUNNER_TEMP/orizon-ecc/scripts/orizon/quality-gate.js"

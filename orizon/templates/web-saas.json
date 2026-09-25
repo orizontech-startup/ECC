@@ -1,0 +1,1 @@
+{"profile":"web-saas","preferred_stack":["TypeScript","React","Node.js","PostgreSQL/Supabase"],"required":["authz","tenant-isolation","responsive-mobile-first","unit-tests","integration-tests","e2e-critical-flows","ci","observability","rollback"]}

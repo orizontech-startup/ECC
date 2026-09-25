@@ -1,0 +1,1 @@
+{"profile":"remote-access","preferred_stack":["TypeScript","WebRTC/WebSocket","native-client"],"required":["explicit-consent","pairing-security","session-revocation","input-e2e","latency-metrics","multi-monitor","crash-recovery","audit-log","mobile-operator-ui"]}

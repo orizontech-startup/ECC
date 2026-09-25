@@ -1,0 +1,21 @@
+name: Orizon Engineering Control Plane
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "orizon/registry/**"
+      - "orizon/metrics/**"
+      - "scripts/orizon/generate-control-plane.js"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: node scripts/orizon/generate-control-plane.js
+      - uses: actions/upload-artifact@v4
+        with:
+          name: orizon-engineering-control-plane
+          path: orizon/control-plane/index.html
