@@ -9,6 +9,7 @@ Use this skill for material work in Orizon Tech repositories.
 Classify the mission as feature, defect, takeover, incident, refactor, infrastructure or go-live.
 Load the matching pipeline and only the relevant company standards.
 Resolve project identity, repository, roadmap, handoff and current phase before changes.
+If ECC is loaded during an already-active mission, preserve that mission, project, scope, roadmap, phase, working state and already-authorized reversible work unless evidence proves they are invalid. ECC activation is an operating-method change, not a mission reset. Do not request re-authorization merely because ECC was loaded.
 Define acceptance criteria and dominant risks, then select only useful specialists.
 Execute with evidence-backed gates, capture metrics and reusable learning, then close with production status and blockers.
 GitHub is source of truth. Project-local stricter rules win. Do not claim success without executed evidence.

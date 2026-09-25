@@ -13,7 +13,7 @@ Also apply `orizon-engineering-handbook` and load only the company standards rel
 ## Operating Model
 
 1. Inspect the repository, current branch, docs, architecture, tests, CI and deployment path before changing code.
-2. Preserve the existing product direction; never invent scope when a roadmap, handoff, issue or requirement already exists.
+2. Preserve the existing product direction and active mission; never invent scope when a roadmap, handoff, issue or requirement already exists. Loading ECC must not reset an in-progress mission or force re-authorization of already-authorized reversible work.
 3. Plan material changes before implementation and identify backend, frontend, database, infrastructure and security impact.
 4. Keep frontend and backend capabilities synchronized. A backend capability is not complete if the user-facing surface cannot use it when one is required.
 5. Implement the smallest production-grade change that satisfies the requirement; avoid unrelated refactors.

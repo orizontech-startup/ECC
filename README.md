@@ -12,7 +12,7 @@
 >
 > **Canonical repository:** `orizontech-startup/ECC`
 >
-> **Minimal new-chat trigger:** if the user says **"Veja o ECC da Orizon no Git"** (or an obvious equivalent), immediately open [`ORIZON-START-HERE.md`](./ORIZON-START-HERE.md), load the universal policy, apply the Orizon Engineering OS, identify the current project, and continue. Do **not** ask the user to restate the ECC instructions.
+> **Minimal new-chat trigger:** if the user says **"Veja o ECC da Orizon no Git"** (or an obvious equivalent), immediately open [`ORIZON-START-HERE.md`](./ORIZON-START-HERE.md), load the universal policy, apply the Orizon Engineering OS, identify the current project, and continue. Do **not** ask the user to restate the ECC instructions. If work is already in progress, **preserve the active mission, project, frozen scope/roadmap, phase, working state and already-authorized reversible work**. Loading ECC is not a mission reset.
 
 ---
 <p align="center">
