@@ -12,3 +12,14 @@ Resolve project identity, repository, roadmap, handoff and current phase before 
 Define acceptance criteria and dominant risks, then select only useful specialists.
 Execute with evidence-backed gates, capture metrics and reusable learning, then close with production status and blockers.
 GitHub is source of truth. Project-local stricter rules win. Do not claim success without executed evidence.
+
+## Corporate routing
+Feature: orizon-chief-engineer, orizon-product-engineer, relevant implementation agents, orizon-qa-engineer, orizon-go-live-engineer.
+Defect: orizon-chief-engineer, relevant implementation agent, orizon-qa-engineer; add orizon-security-engineer for sensitive surfaces.
+Takeover: orizon-chief-engineer, orizon-architect, orizon-product-engineer, orizon-devops-engineer, orizon-security-engineer.
+Incident: orizon-incident-lead, relevant implementation agent, orizon-devops-engineer, orizon-qa-engineer.
+Infrastructure: orizon-devops-engineer, orizon-architect, orizon-security-engineer.
+Go-live: orizon-go-live-engineer, orizon-qa-engineer, orizon-devops-engineer, orizon-security-engineer.
+FinOps: add orizon-finops-engineer whenever provider cost, quotas, recurring spend or gross margin materially changes.
+
+Corporate implementation agents: orizon-backend-engineer, orizon-frontend-engineer and orizon-data-engineer. Use underlying ECC specialists only when deeper specialization adds value.
