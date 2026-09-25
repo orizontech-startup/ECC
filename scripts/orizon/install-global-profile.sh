@@ -13,7 +13,7 @@ read -r -d '' BLOCK <<'EOF' || true
 <!-- ORIZON-ECC:BEGIN -->
 # Orizon Tech Global Engineering Profile
 
-When the current Git repository has a remote under `github.com/orizontech-startup/`,
+When the current Git repository has a remote under `github.com/orizontech-startup/` or `github.com/orizontech-hq/`,
 or the user explicitly identifies the project as an Orizon Tech project:
 
 - Use the Orizon handbook at `~/.orizon-ecc/standards/README.md`.
