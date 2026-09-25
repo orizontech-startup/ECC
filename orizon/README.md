@@ -25,3 +25,19 @@ The profile must not mix code, secrets, databases or deployment state between pr
 ## Update Strategy
 
 Keep Orizon customizations additive. Sync upstream ECC into the fork, resolve only real conflicts, validate the plugin, then update the installed marketplace/plugin.
+
+## Global activation
+
+To make the Orizon profile available automatically across existing and future Orizon repositories on an engineer workstation, run one installer after installing the ECC plugin:
+
+Windows PowerShell:
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/orizon/install-global-profile.ps1
+```
+
+macOS/Linux:
+```bash
+bash scripts/orizon/install-global-profile.sh
+```
+
+The installer is idempotent and writes a bounded Orizon block into the user-level Claude Code and Codex instruction files. It only activates the company profile for `orizontech-startup` repositories or projects explicitly identified as Orizon Tech.
