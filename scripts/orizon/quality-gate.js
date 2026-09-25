@@ -24,11 +24,6 @@ function run(name, command, args = [], options = {}) {
   return ok;
 }
 
-function note(name, ok, detail) {
-  report.checks.push({ name, ok, detail });
-  if (!ok) failed = true;
-}
-
 run('git-diff-check', 'git', ['diff', '--check']);
 
 const packagePath = path.join(root, 'package.json');
@@ -76,8 +71,8 @@ if (fs.existsSync(path.join(root, 'pyproject.toml')) || fs.existsSync(path.join(
 
 report.state = failed ? 'QUALITY_GATE_FAIL' : 'QUALITY_GATE_PASS';
 const outDir = path.join(root, '.orizon');
-try { fs.mkdirSync(outDir, { recursive: true }); } catch {}
-try { fs.writeFileSync(path.join(outDir, 'gate-report.json'), JSON.stringify(report, null, 2) + '\n'); } catch {}
+try { fs.mkdirSync(outDir, { recursive: true }); } catch (error) { console.warn(error.message); }
+try { fs.writeFileSync(path.join(outDir, 'gate-report.json'), JSON.stringify(report, null, 2) + '\n'); } catch (error) { console.warn(error.message); }
 
 console.log('\n=== ORIZON QUALITY GATE ===');
 for (const check of report.checks) {
