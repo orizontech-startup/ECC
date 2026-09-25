@@ -1,4 +1,4 @@
-# Environment files
+﻿# Environment files
 .env
 .env.local
 .env.*.local
@@ -107,3 +107,6 @@ ecc2/target/
 assets/images/security/badrudi-exploit.mp4
 
 .aider*
+
+# Orizon Engineering OS local gate evidence
+.orizon/gate-report.json

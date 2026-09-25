@@ -1,0 +1,38 @@
+name: Orizon ECC Upstream Sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fetch upstream
+        run: |
+          git remote add upstream https://github.com/affaan-m/ECC.git || true
+          git fetch upstream main
+          if git merge-base --is-ancestor upstream/main origin/main; then
+            echo "Already up to date"
+            exit 0
+          fi
+          git checkout -B automation/upstream-sync origin/main
+          git merge upstream/main --no-edit
+      - name: Validate merged surface
+        run: |
+          node tests/plugin-manifest.test.js
+          node scripts/skills-health.js
+      - name: Publish sync branch and PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git push --force-with-lease origin automation/upstream-sync
+          gh pr view automation/upstream-sync >/dev/null 2>&1 || gh pr create --base main --head automation/upstream-sync --title "chore: sync ECC upstream" --body "Automated upstream sync. Plugin manifest and skill health validations passed."

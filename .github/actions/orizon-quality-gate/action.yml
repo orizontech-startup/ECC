@@ -1,0 +1,15 @@
+name: Orizon Quality Gate
+description: Adaptive Orizon Tech quality gate for repository pull requests
+inputs:
+  install:
+    description: Install dependencies before checks
+    required: false
+    default: "true"
+runs:
+  using: composite
+  steps:
+    - name: Run Orizon quality gate
+      shell: bash
+      env:
+        ORIZON_GATE_INSTALL: ${{ inputs.install }}
+      run: node "${{ github.action_path }}/../../../scripts/orizon/quality-gate.js"

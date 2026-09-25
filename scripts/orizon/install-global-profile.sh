@@ -13,12 +13,12 @@ read -r -d '' BLOCK <<'EOF' || true
 <!-- ORIZON-ECC:BEGIN -->
 # Orizon Tech Global Engineering Profile
 
-When the current Git repository has a remote under `github.com/orizontech-startup/`,
+When the current Git repository has a remote under `github.com/orizontech-startup/` or `github.com/orizontech-hq/`,
 or the user explicitly identifies the project as an Orizon Tech project:
 
 - Use the Orizon handbook at `~/.orizon-ecc/standards/README.md`.
 - Load only the standards relevant to the current task from `~/.orizon-ecc/standards/`.
-- Apply `orizon-engineering-profile`; use `orizon-project-bootstrap` for first-time onboarding.
+- Apply `orizon-engineering-profile` and `orizon-engineering-os`; use `orizon-project-bootstrap` for first-time onboarding.
 - Delivery order: Database -> Security -> Backend -> Frontend -> Tests -> Observability -> Staging -> Production.
 - GitHub is the source of truth for repository-backed code.
 - Keep frontend/backend/data/infrastructure changes synchronized.
