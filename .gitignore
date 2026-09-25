@@ -1,4 +1,4 @@
-# Environment files
+﻿# Environment files
 .env
 .env.local
 .env.*.local
@@ -109,5 +109,4 @@ assets/images/security/badrudi-exploit.mp4
 .aider*
 
 # Orizon Engineering OS local gate evidence
-.orion-placeholder
 .orizon/gate-report.json
