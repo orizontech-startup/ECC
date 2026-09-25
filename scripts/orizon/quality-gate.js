@@ -8,7 +8,7 @@ const report = { generatedAt: new Date().toISOString(), root, checks: [], state:
 let failed = false;
 
 function exe(name) {
-  return process.platform === 'win32' && ['npm','npx','pnpm','yarn'].includes(name) ? name + '.cmd' : name;
+  return process.platform === 'win32' && ['npm','npx','pnpm','yarn','bun'].includes(name) ? name + '.cmd' : name;
 }
 
 function run(name, command, args = [], options = {}) {
@@ -40,7 +40,10 @@ if (fs.existsSync(packagePath)) {
 
   let manager = 'npm';
   let installArgs = ['ci'];
-  if (fs.existsSync(path.join(root, 'pnpm-lock.yaml'))) {
+  if (fs.existsSync(path.join(root, 'bun.lock')) || fs.existsSync(path.join(root, 'bun.lockb'))) {
+    manager = 'bun';
+    installArgs = ['install', '--frozen-lockfile'];
+  } else if (fs.existsSync(path.join(root, 'pnpm-lock.yaml'))) {
     manager = 'pnpm';
     installArgs = ['install', '--frozen-lockfile'];
     run('corepack-enable', 'corepack', ['enable']);
