@@ -11,6 +11,8 @@
 > This entry point is universal for **all existing and future Orizon Tech projects**. First discover the current project, then apply the Orizon Engineering OS and load only the relevant skills, agents and standards.
 >
 > **Canonical repository:** `orizontech-startup/ECC`
+>
+> **Minimal new-chat trigger:** if the user says **"Veja o ECC da Orizon no Git"** (or an obvious equivalent), immediately open [`ORIZON-START-HERE.md`](./ORIZON-START-HERE.md), load the universal policy, apply the Orizon Engineering OS, identify the current project, and continue. Do **not** ask the user to restate the ECC instructions.
 
 ---
 <p align="center">

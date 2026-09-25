@@ -27,8 +27,19 @@ Then apply the ECC skills:
 - Project-local stricter rules take precedence.
 - Never claim successful validation without executed evidence.
 
-## Suggested instruction for a new chat
+## Minimal instruction for a new chat
 
-> Veja no GitHub o repositório `orizontech-startup/ECC`. Comece pelo arquivo `ORIZON-START-HERE.md`, carregue a política universal da Orizon Tech e aplique o Orizon Engineering OS a esta frente de trabalho. Depois identifique o projeto atual antes de qualquer execução material.
+The preferred human trigger is simply:
 
-That short instruction is sufficient to bootstrap a capable agent that has GitHub access.
+> **Veja o ECC da Orizon no Git.**
+
+If a user says this phrase, or a clear equivalent such as `veja o repo ECC`, `abra o ECC da Orizon` or `carregue o ECC`, treat it as an instruction to:
+
+1. use this repository as the canonical ECC source;
+2. read this `ORIZON-START-HERE.md` file;
+3. load `orizon/policies/ORIZON-ENGINEERING-OS-UNIVERSAL.md`;
+4. apply `orizon-engineering-profile` and `orizon-engineering-os`;
+5. identify the current project/repository and its local rules;
+6. continue the current task under the Orizon Engineering OS.
+
+Do not require the user to remember or repeat a longer bootstrap prompt. Do not ask the user to restate the ECC instructions when this short trigger is used.
