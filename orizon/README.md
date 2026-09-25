@@ -42,4 +42,4 @@ macOS/Linux:
 bash scripts/orizon/install-global-profile.sh
 ```
 
-The installer is idempotent and writes a bounded Orizon block into the user-level Claude Code and Codex instruction files. It only activates the company profile for `orizontech-startup` repositories or projects explicitly identified as Orizon Tech.
+The installer is idempotent. It copies the portable company handbook to `~/.orizon-ecc/`, then writes a bounded Orizon block into the user-level Claude Code and Codex instruction files. This gives both harnesses a stable handbook path independent of plugin cache layout. It only activates the company profile for `orizontech-startup` repositories or projects explicitly identified as Orizon Tech.
