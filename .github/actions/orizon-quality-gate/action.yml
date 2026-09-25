@@ -8,6 +8,25 @@ inputs:
 runs:
   using: composite
   steps:
+    - name: Resolve project Node version
+      id: node
+      shell: bash
+      run: |
+        if [ -f .nvmrc ]; then
+          VERSION="$(tr -d '[:space:]' < .nvmrc)"
+        elif [ -f .node-version ]; then
+          VERSION="$(tr -d '[:space:]' < .node-version)"
+        elif [ -f package.json ]; then
+          VERSION="$(node -e "const p=require('./package.json'); process.stdout.write((p.engines&&p.engines.node)||'22')")"
+        else
+          VERSION="22"
+        fi
+        echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+    - name: Configure project Node version
+      if: hashFiles('package.json') != ''
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ steps.node.outputs.version }}
     - name: Run Orizon quality gate
       shell: bash
       env:
