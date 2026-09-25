@@ -1,3 +1,18 @@
+# ORIZON TECH - AI AGENTS: START HERE
+
+> [!IMPORTANT]
+> **If you are ChatGPT, Claude, Codex, another AI agent, or an engineer starting work on any Orizon Tech project, do not begin with this upstream README.**
+>
+> **START HERE:** [`ORIZON-START-HERE.md`](./ORIZON-START-HERE.md)
+>
+> Then load and apply the canonical universal policy:
+> [`orizon/policies/ORIZON-ENGINEERING-OS-UNIVERSAL.md`](./orizon/policies/ORIZON-ENGINEERING-OS-UNIVERSAL.md)
+>
+> This entry point is universal for **all existing and future Orizon Tech projects**. First discover the current project, then apply the Orizon Engineering OS and load only the relevant skills, agents and standards.
+>
+> **Canonical repository:** `orizontech-startup/ECC`
+
+---
 <p align="center">
   <img src="assets/hero.png" alt="ECC - the agent harness operating system" width="100%" />
 </p>
@@ -20,18 +35,18 @@
 <p align="center">
   <strong>Language:</strong>
   <a href="README.md">English</a> |
-  <a href="docs/pt-BR/README.md">Português (Brasil)</a> |
-  <a href="README.zh-CN.md">简体中文</a> |
-  <a href="docs/zh-TW/README.md">繁體中文</a> |
-  <a href="docs/ja-JP/README.md">日本語</a> |
-  <a href="docs/ko-KR/README.md">한국어</a> |
-  <a href="docs/tr/README.md">Türkçe</a> |
-  <a href="docs/ru/README.md">Русский</a> |
-  <a href="docs/vi-VN/README.md">Tiếng Việt</a> |
-  <a href="docs/th/README.md">ไทย</a> |
+  <a href="docs/pt-BR/README.md">PortuguÃªs (Brasil)</a> |
+  <a href="README.zh-CN.md">ç®€ä½“ä¸­æ–‡</a> |
+  <a href="docs/zh-TW/README.md">ç¹é«”ä¸­æ–‡</a> |
+  <a href="docs/ja-JP/README.md">æ—¥æœ¬èªž</a> |
+  <a href="docs/ko-KR/README.md">í•œêµ­ì–´</a> |
+  <a href="docs/tr/README.md">TÃ¼rkÃ§e</a> |
+  <a href="docs/ru/README.md">Ð ÑƒÑÑÐºÐ¸Ð¹</a> |
+  <a href="docs/vi-VN/README.md">Tiáº¿ng Viá»‡t</a> |
+  <a href="docs/th/README.md">à¹„à¸—à¸¢</a> |
   <a href="docs/de-DE/README.md">Deutsch</a> |
-  <a href="docs/es/README.md">Español</a> |
-  <a href="docs/uk-UA/README.md">Українська</a>
+  <a href="docs/es/README.md">EspaÃ±ol</a> |
+  <a href="docs/uk-UA/README.md">Ð£ÐºÑ€Ð°Ñ—Ð½ÑÑŒÐºÐ°</a>
 </p>
 
 <p align="center">
@@ -79,7 +94,7 @@ Use the [guided setup](#install-ecc) or [native plugin commands](#claude-code-de
     <img src="assets/images/community/ecc-tools-mark.svg" height="42" alt="ECC Tools" /><br />
     <strong>ECC Pro + GitHub App</strong>
   </a><br />
-  <sub><a href="https://github.com/apps/ecc-tools">Install free</a> · <a href="https://ecc.tools/pricing">Private repos from $19/seat/mo</a></sub>
+  <sub><a href="https://github.com/apps/ecc-tools">Install free</a> Â· <a href="https://ecc.tools/pricing">Private repos from $19/seat/mo</a></sub>
 </td>
 <td width="33%" align="center">
   <a href="https://github.com/sponsors/affaan-m">
@@ -93,7 +108,7 @@ Use the [guided setup](#install-ecc) or [native plugin commands](#claude-code-de
     <img src="assets/images/community/discord.svg" height="42" alt="Discord" /><br />
     <strong>Community</strong>
   </a><br />
-  <sub>Discord · Q&amp;A · Show and Tell</sub>
+  <sub>Discord Â· Q&amp;A Â· Show and Tell</sub>
 </td>
 </tr>
 </table>
@@ -110,19 +125,19 @@ Use the [guided setup](#install-ecc) or [native plugin commands](#claude-code-de
   <a href="https://www.coderabbit.ai" title="CodeRabbit"><img src="assets/images/sponsors/coderabbit.png" height="54" alt="CodeRabbit" /></a>&nbsp;&nbsp;&nbsp;
   <a href="https://www.greptile.com/go/ecc" title="Greptile"><img src="assets/images/sponsors/greptile.png" height="54" alt="Greptile" /></a>&nbsp;&nbsp;&nbsp;
   <a href="https://platform.kimi.ai?aff=ecc" title="Moonshot AI - Kimi"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/images/sponsors/moonshot-dark.png" /><img src="assets/images/sponsors/moonshot.png" width="132" alt="Moonshot AI - Kimi" /></picture></a>&nbsp;&nbsp;&nbsp;
-  <a href="https://compute.itomarkets.com" title="Itô Markets"><picture><source media="(prefers-color-scheme: light)" srcset="assets/images/sponsors/ito-transparent-light.png" /><img src="assets/images/sponsors/ito-transparent.png" width="96" alt="Itô Markets" /></picture></a>&nbsp;&nbsp;&nbsp;
+  <a href="https://compute.itomarkets.com" title="ItÃ´ Markets"><picture><source media="(prefers-color-scheme: light)" srcset="assets/images/sponsors/ito-transparent-light.png" /><img src="assets/images/sponsors/ito-transparent.png" width="96" alt="ItÃ´ Markets" /></picture></a>&nbsp;&nbsp;&nbsp;
   <a href="https://serpapi.com/github-ecc" title="SerpApi: Web Search API"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/images/sponsors/serpapi-logo-dark-mode.svg" /><img src="assets/images/sponsors/serpapi-logo-light-mode.svg" width="200" alt="SerpApi: Web Search API" /></picture></a>
 </p>
 
 <sub><strong>Past sponsors:</strong> <a href="https://www.atlascloud.ai/?utm_source=github&amp;utm_medium=link&amp;utm_campaign=ECC">Atlas Cloud</a></sub>
 
-<sub><strong>Community sponsors:</strong> <a href="https://github.com/mikejmorgan-ai">Mike Morgan</a> · <a href="https://github.com/jasonwu513">@jasonwu513</a> · <a href="https://github.com/1anter">@1anter</a> · <a href="https://github.com/massimotodaro">@massimotodaro</a> · <a href="https://github.com/meadmccabe">@meadmccabe</a></sub>
+<sub><strong>Community sponsors:</strong> <a href="https://github.com/mikejmorgan-ai">Mike Morgan</a> Â· <a href="https://github.com/jasonwu513">@jasonwu513</a> Â· <a href="https://github.com/1anter">@1anter</a> Â· <a href="https://github.com/massimotodaro">@massimotodaro</a> Â· <a href="https://github.com/meadmccabe">@meadmccabe</a></sub>
 
-<sub><a href="https://github.com/sponsors/affaan-m"><strong>Become a Sponsor</strong></a> · <a href="SPONSORS.md">Sponsor Tiers</a> · <a href="SPONSORING.md">Sponsorship Program</a></sub>
+<sub><a href="https://github.com/sponsors/affaan-m"><strong>Become a Sponsor</strong></a> Â· <a href="SPONSORS.md">Sponsor Tiers</a> Â· <a href="SPONSORING.md">Sponsorship Program</a></sub>
 
 </div>
 
-<p align="center"><a href="#install-ecc">Jump to install ↓</a></p>
+<p align="center"><a href="#install-ecc">Jump to install â†“</a></p>
 
 # ECC
 
@@ -403,7 +418,7 @@ cd ECC
 | Qwen CLI | `./install.sh --profile minimal --target qwen` | See the [Qwen guide](docs/QWEN-GUIDE.md) |
 | Hermes | `./install.sh --profile minimal --target hermes` | See the [Hermes setup guide](docs/HERMES-SETUP.md) |
 | OpenClaw | `./install.sh --profile minimal --target openclaw` | Managed home-directory install |
-| Kimi Code CLI | `./install.sh --profile minimal --target kimi` | Project-local `.kimi-code/` install · [Get Kimi Code](https://www.kimi.ai/code?aff=ecc) |
+| Kimi Code CLI | `./install.sh --profile minimal --target kimi` | Project-local `.kimi-code/` install Â· [Get Kimi Code](https://www.kimi.ai/code?aff=ecc) |
 | CodeBuddy | `./install.sh --profile minimal --target codebuddy` | Project-local `.codebuddy/` install |
 | JoyCode | `./install.sh --profile minimal --target joycode` | Project-local `.joycode/` install |
 
@@ -752,9 +767,9 @@ claude
 
 If your gateway remaps model names, configure that in Claude Code rather than in ECC. ECC's hooks, skills, commands, and rules are model-provider agnostic once the `claude` CLI is already working. See Anthropic's [LLM gateway documentation](https://docs.anthropic.com/en/docs/claude-code/llm-gateway) and [model configuration documentation](https://docs.anthropic.com/en/docs/claude-code/model-config).
 
-Run or self-host any open-source model behind that gateway using separate compute and serving setup. If you need GPU capacity, [Itô](https://compute.itomarkets.com) is ECC's preferred compute sponsor; any GPU provider works. The sponsorship link is passive: it does not invoke an RFQ, reserve capacity, provision compute, or configure serving. Separately, `ecc ito find` invokes the explicitly configured canonical Itô CLI and submits a live authenticated RFQ; it does not reserve capacity. Managed inference through Itô is not live yet.
+Run or self-host any open-source model behind that gateway using separate compute and serving setup. If you need GPU capacity, [ItÃ´](https://compute.itomarkets.com) is ECC's preferred compute sponsor; any GPU provider works. The sponsorship link is passive: it does not invoke an RFQ, reserve capacity, provision compute, or configure serving. Separately, `ecc ito find` invokes the explicitly configured canonical ItÃ´ CLI and submits a live authenticated RFQ; it does not reserve capacity. Managed inference through ItÃ´ is not live yet.
 
-### Self-host Kimi with ECC + Itô compute
+### Self-host Kimi with ECC + ItÃ´ compute
 
 The Kimi Code harness and the model-serving layer are separate. ECC configures the agent harness; you bring an API endpoint ([get a Kimi API key](https://platform.kimi.ai?aff=ecc)) or self-host an open-weight Kimi model on your own GPU capacity. This adapter is verified against Kimi Code 0.31.x (`@moonshot-ai/kimi-code`):
 
@@ -762,10 +777,10 @@ The Kimi Code harness and the model-serving layer are separate. ECC configures t
 <tr>
 <td width="33%" align="center">
   <a href="https://compute.itomarkets.com">
-    <picture><source media="(prefers-color-scheme: light)" srcset="assets/images/sponsors/ito-transparent-light.png" /><img src="assets/images/sponsors/ito-transparent.png" width="92" alt="Itô Markets" /></picture><br />
+    <picture><source media="(prefers-color-scheme: light)" srcset="assets/images/sponsors/ito-transparent-light.png" /><img src="assets/images/sponsors/ito-transparent.png" width="92" alt="ItÃ´ Markets" /></picture><br />
     <strong>1. Get GPU capacity</strong>
   </a><br />
-  <sub>Use Itô or any GPU provider.</sub>
+  <sub>Use ItÃ´ or any GPU provider.</sub>
 </td>
 <td width="33%" align="center">
   <a href="https://www.moonshot.ai">
@@ -794,11 +809,11 @@ kimi
 
 Kimi Code discovers the installed `.kimi-code/AGENTS.md` instructions and `.kimi-code/skills/` workflows natively; project-level `.agents/skills/` is also an official discovery location. ECC safely merges project MCP entries into `.kimi-code/mcp.json` and does not change the user-level `~/.kimi-code/config.toml`. Kimi Code supports native hooks, but ECC's current managed-project adapter does not configure them, so this installer does not offer Kimi hook profiles. The installer dry-run and regression suite verify that every managed Kimi write stays inside the project-local `.kimi-code/` root.
 
-### Itô compute CLI bridge
+### ItÃ´ compute CLI bridge
 
-`ecc ito` delegates to the separately installed canonical Itô client; ECC does not maintain a second API client. `ecc ito login [--no-browser]` performs device authorization, opens the Itô verification page by default, and persists a device token in macOS Keychain; `--no-browser` suppresses the page handoff. ECC itself does no browser automation. `ecc ito auth` is validation-only and rejects `--no-browser`. The available operations are `ecc ito login`, `ecc ito auth`, `ecc ito find`, `ecc ito status`, and the separately gated `ecc ito evals`. The matching MCP tools remain `ito_auth`, `ito_find`, and `ito_status`; `ito_auth` validates existing credentials and node qualification is CLI-only.
+`ecc ito` delegates to the separately installed canonical ItÃ´ client; ECC does not maintain a second API client. `ecc ito login [--no-browser]` performs device authorization, opens the ItÃ´ verification page by default, and persists a device token in macOS Keychain; `--no-browser` suppresses the page handoff. ECC itself does no browser automation. `ecc ito auth` is validation-only and rejects `--no-browser`. The available operations are `ecc ito login`, `ecc ito auth`, `ecc ito find`, `ecc ito status`, and the separately gated `ecc ito evals`. The matching MCP tools remain `ito_auth`, `ito_find`, and `ito_status`; `ito_auth` validates existing credentials and node qualification is CLI-only.
 
-The `ito-compute-cli` package is currently unpublished. Build it locally from the Itô runtime repo (private while the desk hardens; design partners get access) under `cli/ito-compute-cli`, run `npm ci` and `npm run check`, then set `ECC_ITO_CLI_EXECUTABLE` to that build's absolute `dist/bin/ito.js` path. Login never inherits `ITO_API_KEY`; auth, find, and status forward `ITO_API_KEY` directly when configured, and `ITO_AUTH_MODE=legacy` is not required. `ecc ito logout` revokes the current device credential and retains its local copy if remote revocation cannot be confirmed. Device tokens use macOS Keychain by default; explicit file fallback must retain owner-only directory/file permissions. ECC does not discover this credential-bearing client through `PATH`. See the [`ito-compute` skill](skills/ito-compute/SKILL.md) for the full RFQ authority and MCP setup contract.
+The `ito-compute-cli` package is currently unpublished. Build it locally from the ItÃ´ runtime repo (private while the desk hardens; design partners get access) under `cli/ito-compute-cli`, run `npm ci` and `npm run check`, then set `ECC_ITO_CLI_EXECUTABLE` to that build's absolute `dist/bin/ito.js` path. Login never inherits `ITO_API_KEY`; auth, find, and status forward `ITO_API_KEY` directly when configured, and `ITO_AUTH_MODE=legacy` is not required. `ecc ito logout` revokes the current device credential and retains its local copy if remote revocation cannot be confirmed. Device tokens use macOS Keychain by default; explicit file fallback must retain owner-only directory/file permissions. ECC does not discover this credential-bearing client through `PATH`. See the [`ito-compute` skill](skills/ito-compute/SKILL.md) for the full RFQ authority and MCP setup contract.
 
 `find` submits a live authenticated RFQ. It does not reserve capacity. `evals` requires both `ITO_ENABLE_SIXTYTWO_LIVE=1` and `--live-sixtytwo`, a separately installed `sixtytwo-cli==0.3.33`, an explicit node list, and an existing absolute configuration directory. It cannot rent, launch, recover, repair, or purchase. ECC exposes no quote lock, purchase, workload, or inference path, and it never replaces a missing client or failed live call with a local result.
 
@@ -808,7 +823,7 @@ Current release: **2.2.2** (2026-08-31). Highlights of the 2.2 line:
 
 - Guided, manifest-driven setup across Claude Code, Codex, and Kimi Code, with install-state ownership, doctor, repair, and uninstall.
 - Native Antigravity install, a thin Pi adapter, and the packed-artifact release gate tested on Linux, macOS, and Windows.
-- Plan Canvas browser review, the unified memory vault (`ecc memory`), and the Itô compute skill family.
+- Plan Canvas browser review, the unified memory vault (`ecc memory`), and the ItÃ´ compute skill family.
 
 Full history: [CHANGELOG.md](CHANGELOG.md). Per-release notes and evidence live under [docs/releases/](docs/releases/).
 
@@ -1229,7 +1244,7 @@ ecc memory doctor
 
 Memory is unreviewed context, not executable policy. Verify important claims against authoritative sources and promote accepted knowledge into governed project documentation. The optional `ecc-memory-mcp` server exposes the same bounded save, search, read, and doctor surface without enabling itself by default.
 
-[Open the Unified Memory workflow →](skills/unified-memory/SKILL.md)
+[Open the Unified Memory workflow â†’](skills/unified-memory/SKILL.md)
 
 <details>
 <summary><strong>Memory Vault in depth: scopes, handoffs, and trust boundaries</strong></summary>
