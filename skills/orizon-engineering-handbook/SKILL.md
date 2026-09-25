@@ -28,5 +28,12 @@ Read only the standards relevant to the task from the plugin-root `orizon/standa
 - AI-agent development -> AI-AGENT-ENGINEERING.md
 - Roadmap/phases/handoff -> PRODUCT-DELIVERY.md + DOCUMENTATION-HANDOFF.md
 - Production launch -> GO-LIVE-PRODUCTION.md
+- Multi-tenant SaaS -> MULTI-TENANT-SAAS.md + SECURITY.md + DATA-PRIVACY.md
+- Social publishing/autopilot -> SOCIAL-PUBLISHING-AUTOMATION.md + THIRD-PARTY-INTEGRATIONS.md
+- AI-generated marketing/branding -> AI-MEDIA-BRANDING.md + BRAND-ASSETS-UI.md
+- Windows desktop/native client -> WINDOWS-NATIVE-CLIENT.md + PERFORMANCE-COST.md
+- Project takeover/audit -> PROJECT-TAKEOVER-AUDIT.md + PRODUCT-DELIVERY.md
+- Vendor/platform cost -> VENDOR-COST-GOVERNANCE.md + PERFORMANCE-COST.md
+- Remote engineering tools -> REMOTE-ENGINEERING-TOOLS.md + SECURITY.md
 
 Always apply project-local stricter rules first and load no unrelated standard merely because it exists.
