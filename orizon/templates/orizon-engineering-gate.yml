@@ -1,0 +1,11 @@
+name: Orizon Engineering Gate
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+jobs:
+  orizon:
+    uses: orizontech-startup/ECC/.github/workflows/orizon-reusable-quality-gate.yml@main
+    with:
+      node-version: "20"

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "repository": "",
+  "product": "",
+  "owner": "Orizon Tech",
+  "production_url": "",
+  "staging_url": "",
+  "stack": [],
+  "current_phase": "bootstrap",
+  "assurance_class": "E2",
+  "critical_flows": [],
+  "go_live_state": "NOT_ASSESSED"
+}

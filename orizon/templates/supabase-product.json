@@ -1,0 +1,1 @@
+{"profile":"supabase-product","preferred_stack":["PostgreSQL","Supabase"],"required":["migrations-as-code","RLS","service-role-server-only","indexes","auth-tests","storage-policies","backup-plan"]}

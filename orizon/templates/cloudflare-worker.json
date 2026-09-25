@@ -1,0 +1,1 @@
+{"profile":"cloudflare-worker","preferred_stack":["TypeScript","Cloudflare Workers"],"required":["wrangler-config","environment-separation","route-audit","durable-state-strategy","secret-binding","smoke-test","rollback-version"]}
