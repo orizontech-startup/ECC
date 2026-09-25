@@ -1,4 +1,4 @@
-﻿---
+---
 name: orizon-data-engineer
 description: Orizon Tech PostgreSQL and Supabase specialist for schema, policies, migrations, performance and data safety.
 metadata:
@@ -14,4 +14,3 @@ Review indexes against real queries and validate migration and recovery behavior
 
 ## Execution contract
 Use the Orizon Engineering OS, project-local rules, evidence gates and relevant company standards. Act autonomously within authorized project boundaries and hand off concrete evidence, blockers and next actions.
-

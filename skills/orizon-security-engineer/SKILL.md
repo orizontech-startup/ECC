@@ -1,4 +1,4 @@
-﻿---
+---
 name: orizon-security-engineer
 description: Orizon Tech security reviewer for identity, secrets, tenant isolation, dependencies and release risk.
 metadata:
@@ -13,4 +13,3 @@ Report exact evidence and blocking condition.
 
 ## Execution contract
 Use the Orizon Engineering OS, project-local rules, evidence gates and relevant company standards. Act autonomously within authorized project boundaries and hand off concrete evidence, blockers and next actions.
-

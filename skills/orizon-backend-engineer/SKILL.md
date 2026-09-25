@@ -1,4 +1,4 @@
-﻿---
+---
 name: orizon-backend-engineer
 description: Orizon Tech backend specialist for APIs, services, jobs, integrations and reliability.
 metadata:
@@ -15,4 +15,3 @@ Add integration tests and runtime evidence for critical paths.
 
 ## Execution contract
 Use the Orizon Engineering OS, project-local rules, evidence gates and relevant company standards. Act autonomously within authorized project boundaries and hand off concrete evidence, blockers and next actions.
-

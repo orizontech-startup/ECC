@@ -1,4 +1,4 @@
-﻿---
+---
 name: orizon-incident-lead
 description: Orizon Tech incident lead for production diagnosis, containment, recovery and evidence-driven follow-up.
 metadata:
@@ -15,4 +15,3 @@ After recovery record root cause, prevention action and validation evidence.
 
 ## Execution contract
 Use the Orizon Engineering OS, project-local rules, evidence gates and relevant company standards. Act autonomously within authorized project boundaries and hand off concrete evidence, blockers and next actions.
-
