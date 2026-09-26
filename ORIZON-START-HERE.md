@@ -11,7 +11,8 @@ If you are an AI agent, engineer, or new chat working on any Orizon Tech project
 Read and apply:
 
 1. `orizon/policies/ORIZON-ENGINEERING-OS-UNIVERSAL.md`
-2. `orizon/policies/ORIZON-CONTINUOUS-AUTONOMOUS-EXECUTION-POLICY.md`
+2. `orizon/policies/ORIZON-ECC-SUPREMACY-LEGACY-PRECEDENCE.md`
+3. `orizon/policies/ORIZON-CONTINUOUS-AUTONOMOUS-EXECUTION-POLICY.md`
 
 Then apply the ECC skills:
 
@@ -25,7 +26,9 @@ Then apply the ECC skills:
 - Do not assume the stack.
 - Discover the current project before acting.
 - Load only relevant standards and specialists.
-- Project-local stricter rules take precedence.
+- The ECC is the current highest corporate engineering-governance authority.
+- Legacy Strategy, Central Office, Hub, Birth Lifecycle, superseded Bootstrap, Official Resume and historical governance hooks are non-blocking unless explicitly re-adopted by the current ECC.
+- Current project-local stricter rules may take precedence only when they are current, ECC-compatible, and not merely inherited from legacy governance.
 - Never claim successful validation without executed evidence.
 - Loading ECC does **not** reset or replace an active mission.
 - Preserve the current project, scope, roadmap, phase, working tree and already-authorized reversible work unless evidence proves they are invalid.
@@ -44,7 +47,7 @@ If a user says this phrase, or a clear equivalent such as `veja o repo ECC`, `ab
 
 1. use this repository as the canonical ECC source;
 2. read this `ORIZON-START-HERE.md` file;
-3. load `orizon/policies/ORIZON-ENGINEERING-OS-UNIVERSAL.md`;
+3. load `orizon/policies/ORIZON-ENGINEERING-OS-UNIVERSAL.md` and `orizon/policies/ORIZON-ECC-SUPREMACY-LEGACY-PRECEDENCE.md`;
 4. apply `orizon-engineering-profile` and `orizon-engineering-os`;
 5. identify the current project/repository and its local rules;
 6. preserve the active mission, frozen scope/roadmap, current phase and already-authorized reversible work;
