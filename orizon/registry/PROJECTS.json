@@ -1,135 +1,141 @@
 {
-    "generated_at":  "2026-09-25T12:01:07-03:00",
-    "organizations":  [
-                          "orizontech-startup",
-                          "orizontech-hq"
-                      ],
-    "projects":  [
-                     {
-                         "repo":  "orizontech-hq/orizon-os",
-                         "role":  "platform-os",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-hq/orizon-nexus",
-                         "role":  "nexus",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-hq/orizon-owner-intelligence",
-                         "role":  "owner-intelligence",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-hq/orizon-strategy",
-                         "role":  "strategy-and-governance",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-hq/orizon-station",
-                         "role":  "station",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-hq/orizon-caio",
-                         "role":  "caio",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-hq/goyta-digital-experience",
-                         "role":  "product",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-hq/orizon-central-office",
-                         "role":  "central-office",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-hq/orizon-intelligence-hub",
-                         "role":  "intelligence-hub",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-hq/orizon-conversation-memory",
-                         "role":  "conversation-memory",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-startup/ECC",
-                         "role":  "engineering-os-core",
-                         "default_branch":  "main",
-                         "fork":  true
-                     },
-                     {
-                         "repo":  "orizontech-startup/orizon-engineering-os",
-                         "role":  "engineering-os",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-startup/orizon-engineering",
-                         "role":  "product-or-platform",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-startup/orizontec",
-                         "role":  "product-or-platform",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-startup/real-gem-finder",
-                         "role":  "product-or-platform",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-startup/orizon-tech-startup",
-                         "role":  "product-or-platform",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-startup/balaguerimoveis26",
-                         "role":  "product-or-platform",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-startup/atleta360",
-                         "role":  "product",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-startup/NORTHNASH",
-                         "role":  "product-or-platform",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-startup/orizon-caio",
-                         "role":  "caio",
-                         "default_branch":  "main",
-                         "fork":  false
-                     },
-                     {
-                         "repo":  "orizontech-startup/orizon-agents",
-                         "role":  "product-or-platform",
-                         "default_branch":  "main",
-                         "fork":  false
-                     }
-                 ]
+    "generated_at": "2026-09-25T12:01:07-03:00",
+    "organizations": [
+        "orizontech-startup",
+        "orizontech-hq"
+    ],
+    "projects": [
+        {
+            "repo": "OrizonTech-IA/orizonagents",
+            "role": "agents-platform",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-hq/goyta-digital-experience",
+            "role": "product",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-hq/orizon-caio",
+            "role": "caio",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-hq/orizon-central-office",
+            "role": "central-office",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-hq/orizon-conversation-memory",
+            "role": "conversation-memory",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-hq/orizon-intelligence-hub",
+            "role": "intelligence-hub",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-hq/orizon-nexus",
+            "role": "nexus",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-hq/orizon-os",
+            "role": "platform-os",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-hq/orizon-owner-intelligence",
+            "role": "owner-intelligence",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-hq/orizon-station",
+            "role": "station",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-hq/orizon-strategy",
+            "role": "strategy-and-governance",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-startup/ECC",
+            "role": "engineering-os-core",
+            "default_branch": "main",
+            "fork": true
+        },
+        {
+            "repo": "orizontech-startup/NORTHNASH",
+            "role": "product-or-platform",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-startup/atleta360",
+            "role": "product",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-startup/balaguerimoveis26",
+            "role": "product-or-platform",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-startup/orizon-agents",
+            "role": "product-or-platform",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-startup/orizon-caio",
+            "role": "caio",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-startup/orizon-engineering",
+            "role": "product-or-platform",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-startup/orizon-engineering-os",
+            "role": "engineering-os",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-startup/orizon-tech-startup",
+            "role": "product-or-platform",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-startup/orizontec",
+            "role": "product-or-platform",
+            "default_branch": "main",
+            "fork": false
+        },
+        {
+            "repo": "orizontech-startup/real-gem-finder",
+            "role": "product-or-platform",
+            "default_branch": "main",
+            "fork": false
+        }
+    ]
 }
