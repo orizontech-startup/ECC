@@ -1,5 +1,9 @@
 # CLAUDE.md
 
+## ORIZON TECH MANDATORY SESSION ENTRY
+
+For any Orizon Tech project or mission, before material work fetch/read the latest `main` from `orizontech-startup/ECC`, start with `ORIZON-START-HERE.md`, and apply `orizon/policies/ORIZON-ECC-MANDATORY-SESSION-ENTRY.md`. Preserve an existing valid mission, roadmap, phase, working state, and reversible authorizations. ECC is the current corporate engineering-governance authority; legacy governance is non-blocking unless current ECC explicitly re-adopts it.
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview

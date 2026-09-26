@@ -1,6 +1,6 @@
 # ORIZON ENGINEERING OS — UNIVERSAL POLICY
 
-**Version:** 1.2.0
+**Version:** 1.3.0
 **Owner:** Orizon Tech  
 **Canonical repository:** `orizontech-startup/ECC`  
 **Canonical file:** `orizon/policies/ORIZON-ENGINEERING-OS-UNIVERSAL.md`
@@ -52,6 +52,27 @@ Current project-local rules may be stricter than this policy only when they are 
 
 ---
 
+
+# MANDATORY ECC SESSION ENTRY
+
+Every Orizon agent, project, repository, and material engineering session must load the latest available `main` of `orizontech-startup/ECC` before material work.
+
+Canonical policy: `orizon/policies/ORIZON-ECC-MANDATORY-SESSION-ENTRY.md`.
+
+Mandatory invariants:
+
+- `EVERY_ORIZON_SESSION_STARTS_WITH_ECC`
+- `FETCH_LATEST_ECC_MAIN_BEFORE_MATERIAL_WORK`
+- `READ_ORIZON_START_HERE`
+- `APPLY_ORIZON_ENGINEERING_PROFILE`
+- `APPLY_ORIZON_ENGINEERING_OS`
+- `PRESERVE_ACTIVE_MISSION_AND_WORKING_STATE`
+
+Every Orizon project must expose a local harness-native pointer back to the canonical ECC so that an agent encounters the current corporate rules on project entry. Do not copy the whole policy into each repository; point to the ECC as source of truth.
+
+Loading ECC is a startup governance action, not a new mission and not a conversational checkpoint.
+
+---
 
 # ECC SUPREMACY & LEGACY GOVERNANCE PRECEDENCE
 

@@ -6,6 +6,7 @@ metadata:
 ---
 # Orizon Engineering OS
 Use this skill for material work in Orizon Tech repositories.
+Before material work, apply `orizon/policies/ORIZON-ECC-MANDATORY-SESSION-ENTRY.md` and load the latest available `main` of `orizontech-startup/ECC`.
 Classify the mission as feature, defect, takeover, incident, refactor, infrastructure or go-live.
 Load the matching pipeline and only the relevant company standards.
 Resolve project identity, repository, roadmap, handoff and current phase before changes.
