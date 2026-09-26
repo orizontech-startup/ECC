@@ -1,5 +1,9 @@
 # Everything Claude Code (ECC) — Agent Instructions
 
+## ORIZON TECH MANDATORY SESSION ENTRY
+
+If you are working on any Orizon Tech project, repository, mission, handoff, or resumed session, before material work load the latest `main` from `orizontech-startup/ECC` and apply `ORIZON-START-HERE.md` plus `orizon/policies/ORIZON-ECC-MANDATORY-SESSION-ENTRY.md`. The ECC is the current corporate engineering-governance authority. Preserve any valid active mission and continue under ECC.
+
 This is a **production-ready AI coding plugin** providing 68 specialized agents, 292 skills, 94 commands, and automated hook workflows for software development.
 
 **Version:** 2.2.2
