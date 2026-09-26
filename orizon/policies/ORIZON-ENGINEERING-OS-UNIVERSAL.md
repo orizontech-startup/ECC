@@ -1,6 +1,6 @@
 # ORIZON ENGINEERING OS — UNIVERSAL POLICY
 
-**Version:** 1.1.0
+**Version:** 1.2.0
 **Owner:** Orizon Tech  
 **Canonical repository:** `orizontech-startup/ECC`  
 **Canonical file:** `orizon/policies/ORIZON-ENGINEERING-OS-UNIVERSAL.md`
@@ -48,10 +48,34 @@ Before material work:
 
 Never assume the technology stack or architecture from another Orizon project.
 
-Project-local rules may be stricter than this policy and take precedence when they do not weaken mandatory security, integrity or evidence requirements.
+Current project-local rules may be stricter than this policy only when they are current, applicable, ECC-compatible, and do not derive blocking authority solely from superseded legacy governance. Legacy rules never override the ECC merely because they are older or more restrictive.
 
 ---
 
+
+# ECC SUPREMACY & LEGACY GOVERNANCE PRECEDENCE
+
+The ECC / Orizon Engineering OS is the current highest corporate engineering-governance authority.
+
+Canonical policy: `orizon/policies/ORIZON-ECC-SUPREMACY-LEGACY-PRECEDENCE.md`.
+
+Mandatory invariants:
+
+- `ECC_IS_CANONICAL_GOVERNANCE`
+- `ECC_PRECEDENCE_OVER_LEGACY_GOVERNANCE`
+- `LEGACY_GOVERNANCE_IS_NON_BLOCKING_BY_DEFAULT`
+- `LEGACY_HOOKS_MUST_NOT_VETO_ECC_AUTHORIZED_WORK`
+- `CURRENT_AUTHORIZED_MISSION_MUST_NOT_BE_RESET_BY_LEGACY_RULES`
+
+Historical Strategy, Central Office, Hub, Birth Lifecycle, superseded Bootstrap, Official Resume, old registration gates, and legacy governance hooks are reference material unless the current ECC explicitly re-adopts them.
+
+A current project-local rule may be stricter only when it is current, applicable, ECC-compatible, and not merely inherited from a superseded governance system.
+
+If a legacy guard blocks work solely because an obsolete governance artifact is missing, do not treat that legacy veto as authoritative. Reconcile the active mission and repository under ECC, then migrate, disable, or demote the obsolete guard through an authorized change while preserving any useful security control.
+
+Do not bypass security controls. Replace obsolete governance authority with ECC-compatible governance.
+
+---
 
 # ECC ACTIVATION PRESERVES THE ACTIVE MISSION
 

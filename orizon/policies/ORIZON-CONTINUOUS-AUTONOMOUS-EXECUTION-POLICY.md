@@ -109,5 +109,6 @@ ECC quality, architecture, and security gates remain mandatory, but they functio
 ## 7. INHERITANCE AND PROJECT OVERRIDES
 
 - **Default Inheritance:** All repositories and projects operating under the Orizon Engineering OS automatically inherit this policy.
-- **Project-Specific Overrides:** A repository may declare stricter, more restrictive operational constraints in its local `CLAUDE.md` or documentation. Stricter project-local constraints always win.
+- **Project-Specific Overrides:** A repository may declare stricter operational constraints only when they are current, ECC-compatible, and not merely inherited from legacy governance. ECC supremacy remains controlling when a local rule derives authority solely from superseded Strategy, Central Office, Hub, Birth Lifecycle, Bootstrap, Official Resume, or historical governance hooks.
+- **ECC Supremacy:** Apply `orizon/policies/ORIZON-ECC-SUPREMACY-LEGACY-PRECEDENCE.md`; legacy governance must not create artificial pauses or veto ECC-authorized work.
 - **Security Invariant:** No autonomous action may violate default-deny security, expose secrets, bypass access controls, or perform unauthorized destructive operations.
