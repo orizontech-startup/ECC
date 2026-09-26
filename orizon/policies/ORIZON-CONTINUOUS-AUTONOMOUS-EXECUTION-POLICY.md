@@ -12,7 +12,7 @@ It applies by default to every project registered in or operating under the Oriz
 
 ---
 
-# 1. CORE OPERATING PRINCIPLE
+## 1. CORE OPERATING PRINCIPLE
 
 Once an engineering mission is authorized by the user or project leadership, the agent must continue executing autonomously until:
 
@@ -21,7 +21,7 @@ Once an engineering mission is authorized by the user or project leadership, the
 
 ---
 
-# 2. PROHIBITED ARTIFICIAL PAUSES
+## 2. PROHIBITED ARTIFICIAL PAUSES
 
 The agent MUST NOT pause, stop, or return control to the user to:
 
@@ -37,7 +37,7 @@ The agent MUST NOT pause, stop, or return control to the user to:
 
 ---
 
-# 3. AUTONOMOUS RECOVERY STANDARD
+## 3. AUTONOMOUS RECOVERY STANDARD
 
 Whenever the agent encounters:
 
@@ -58,7 +58,7 @@ The agent must fix the issue within scope and resume the mission without pausing
 
 ---
 
-# 4. PERMITTED HUMAN BLOCKERS (GENUINE STOP CONDITIONS)
+## 4. PERMITTED HUMAN BLOCKERS (GENUINE STOP CONDITIONS)
 
 An autonomous execution pause is strictly restricted to **GENUINE HUMAN BLOCKERS**:
 
@@ -73,7 +73,7 @@ An autonomous execution pause is strictly restricted to **GENUINE HUMAN BLOCKERS
 
 ---
 
-# 5. BLOCKER REPORTING FORMAT
+## 5. BLOCKER REPORTING FORMAT
 
 When a genuine blocker forces a pause, the agent must not present generic status narration or vague questions. It must format the output explicitly as:
 
@@ -87,7 +87,7 @@ When a genuine blocker forces a pause, the agent must not present generic status
 
 ---
 
-# 6. UNIVERSAL PRINCIPLES
+## 6. UNIVERSAL PRINCIPLES
 
 ## Authorization Persistence
 Reversible authorizations granted during a mission remain valid throughout its lifecycle and must not be requested repeatedly.
@@ -106,7 +106,7 @@ ECC quality, architecture, and security gates remain mandatory, but they functio
 
 ---
 
-# 7. INHERITANCE AND PROJECT OVERRIDES
+## 7. INHERITANCE AND PROJECT OVERRIDES
 
 - **Default Inheritance:** All repositories and projects operating under the Orizon Engineering OS automatically inherit this policy.
 - **Project-Specific Overrides:** A repository may declare stricter, more restrictive operational constraints in its local `CLAUDE.md` or documentation. Stricter project-local constraints always win.
