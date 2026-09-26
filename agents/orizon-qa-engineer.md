@@ -1,4 +1,4 @@
-﻿---
+---
 name: orizon-qa-engineer
 description: Orizon Tech QA specialist for regression, integration, end-to-end and runtime acceptance evidence.
 tools: Read, Grep, Glob, Bash

@@ -1,4 +1,4 @@
-﻿# Orizon Engineering Profile
+# Orizon Engineering Profile
 
 This directory contains Orizon Tech's company-wide engineering layer on top of ECC.
 

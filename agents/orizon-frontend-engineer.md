@@ -1,4 +1,4 @@
-﻿---
+---
 name: orizon-frontend-engineer
 description: Orizon Tech frontend specialist for responsive interfaces and contract integration.
 tools: Read, Grep, Glob, Bash, Edit, Write

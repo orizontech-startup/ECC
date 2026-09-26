@@ -1,4 +1,4 @@
-﻿---
+---
 name: orizon-security-engineer
 description: Orizon Tech security reviewer for identity, secrets, tenant isolation, dependencies and release risk.
 tools: Read, Grep, Glob, Bash

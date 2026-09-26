@@ -1,4 +1,4 @@
-﻿---
+---
 name: orizon-incident-lead
 description: Orizon Tech incident lead for production diagnosis, containment, recovery and evidence-driven follow-up.
 tools: Read, Grep, Glob, Bash, Edit, Write

@@ -1,4 +1,4 @@
-﻿---
+---
 name: orizon-devops-engineer
 description: Orizon Tech DevOps specialist for GitHub, Cloudflare, CI/CD, environments, releases and rollback.
 tools: Read, Grep, Glob, Bash, Edit, Write

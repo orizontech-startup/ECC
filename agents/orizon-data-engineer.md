@@ -1,4 +1,4 @@
-﻿---
+---
 name: orizon-data-engineer
 description: Orizon Tech PostgreSQL and Supabase specialist for schema, policies, migrations, performance and data safety.
 tools: Read, Grep, Glob, Bash, Edit, Write

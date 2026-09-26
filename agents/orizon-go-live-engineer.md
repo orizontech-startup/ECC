@@ -1,4 +1,4 @@
-﻿---
+---
 name: orizon-go-live-engineer
 description: Orizon Tech release gatekeeper that converts engineering evidence into production readiness status.
 tools: Read, Grep, Glob, Bash
