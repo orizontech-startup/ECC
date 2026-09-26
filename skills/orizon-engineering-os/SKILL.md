@@ -14,6 +14,9 @@ Define acceptance criteria and dominant risks, then select only useful specialis
 Execute with evidence-backed gates, capture metrics and reusable learning, then close with production status and blockers.
 GitHub is source of truth. Project-local stricter rules win. Do not claim success without executed evidence.
 
+## Continuous execution
+Apply `orizon/policies/ORIZON-CONTINUOUS-AUTONOMOUS-EXECUTION-POLICY.md`. Once the mission is authorized, keep executing until its acceptance/exit criteria are met or a genuine human-only blocker is reached. Do not pause for progress narration, artificial choices, repeated approval of reversible work, or failures that can be fixed autonomously. Use tools to verify observable facts, fix in-scope defects, retest, and continue. Security and quality gates remain mandatory but do not themselves require a conversational stop.
+
 ## Corporate routing
 Feature: orizon-chief-engineer, orizon-product-engineer, relevant implementation agents, orizon-qa-engineer, orizon-go-live-engineer.
 Defect: orizon-chief-engineer, relevant implementation agent, orizon-qa-engineer; add orizon-security-engineer for sensitive surfaces.

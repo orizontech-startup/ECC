@@ -1,6 +1,6 @@
 # ORIZON ENGINEERING OS — UNIVERSAL POLICY
 
-**Version:** 1.0.1
+**Version:** 1.1.0
 **Owner:** Orizon Tech  
 **Canonical repository:** `orizontech-startup/ECC`  
 **Canonical file:** `orizon/policies/ORIZON-ENGINEERING-OS-UNIVERSAL.md`
@@ -113,6 +113,112 @@ ACTIVE MISSION
   -> STOP EVERYTHING
   -> INVENT A NEW TARGET
   -> ASK FOR A/B/C WITHOUT A REAL GATE
+```
+
+---
+
+# CONTINUOUS AUTONOMOUS EXECUTION
+
+Once a mission is authorized, the default Orizon behavior is **continuous execution until the mission exit criteria are satisfied or a genuine human gate is reached**.
+
+Detailed canonical policy: `orizon/policies/ORIZON-CONTINUOUS-AUTONOMOUS-EXECUTION-POLICY.md`.
+
+Mandatory invariants:
+
+- `CONTINUE_UNTIL_EXIT_CRITERIA_OR_REAL_BLOCKER`
+- `VERIFY_INSTEAD_OF_ASK`
+- `FIX_INSTEAD_OF_REPORT`
+- `NO_ARTIFICIAL_CHECKPOINTS`
+- `AUTHORIZATION_PERSISTENCE`
+- `FAILURE_IS_WORK_NOT_A_STOP_SIGNAL`
+- `GATES_VALIDATE_THEY_DO_NOT_INTERRUPT`
+- `DO_NOT_HAND_BACK_EXECUTABLE_WORK`
+- `DO_NOT_REASK_FOR_ALREADY_GRANTED_REVERSIBLE_AUTHORITY`
+
+For already-authorized, reversible, project-local work, the agent must continue autonomously through:
+- discovery;
+- implementation;
+- test failures;
+- build failures;
+- runtime defects;
+- regressions;
+- integration defects;
+- deploy failures within the already-authorized scope;
+- documentation and evidence;
+- re-testing after fixes.
+
+The default loop is:
+
+```text
+EXECUTE
+  -> VERIFY
+  -> IF FAILED: DIAGNOSE
+  -> FIX
+  -> RETEST
+  -> CONTINUE
+  -> EXIT ONLY WHEN DONE OR GENUINELY BLOCKED
+```
+
+Do **not** interrupt the owner merely to:
+- explain intermediate progress;
+- ask `posso continuar?`;
+- request permission for reversible work already authorized;
+- present artificial A/B/C choices when one valid path is already implied by the active mission;
+- ask the owner to verify something the available tools/runtime can verify directly;
+- report a fixable bug instead of fixing it;
+- hand back a next step that the agent can execute with available authorized tools;
+- stop after a partial success when acceptance criteria remain open;
+- treat lint, typecheck, test, build or E2E failures as terminal unless they cannot be remediated autonomously.
+
+Quality, security and evidence gates remain mandatory. They are **validation gates, not conversational pause points**.
+
+A pause is justified only by a genuine blocker that cannot be resolved within existing authority, such as:
+- MFA, CAPTCHA, passkey or another non-delegable human authentication challenge;
+- missing or invalid credential requiring re-enrollment by the owner;
+- legal acceptance;
+- payment or new financial commitment;
+- irreversible or destructive action not already authorized;
+- material production mutation outside the granted blast radius;
+- security-boundary bypass;
+- material conflict with frozen scope, roadmap, ADR or project authority;
+- external dependency unavailable with no safe workaround;
+- genuine product ambiguity where incompatible outcomes would materially change the mission.
+
+When a real blocker is reached, report only what is necessary:
+
+```text
+REAL BLOCKER:
+WHAT BLOCKED:
+WHY IT CANNOT BE RESOLVED AUTONOMOUSLY:
+ONE HUMAN ACTION REQUIRED:
+AUTOMATIC RESUME POINT:
+```
+
+After that human action is completed, resume automatically from the preserved working state. Do not restart discovery or ask for mission re-authorization unless evidence invalidates the existing mission.
+
+Correct behavior:
+
+```text
+AUTHORIZED MISSION
+  -> EXECUTE
+  -> TEST
+  -> FAIL
+  -> FIX
+  -> RETEST
+  -> VALIDATE
+  -> CONTINUE
+  -> DONE
+```
+
+Incorrect behavior:
+
+```text
+AUTHORIZED MISSION
+  -> SMALL STEP
+  -> EXPLAIN
+  -> ASK TO CONTINUE
+  -> WAIT
+  -> REPEAT
 ```
 
 ---
@@ -450,18 +556,23 @@ Production-ready or live states require applicable evidence.
 # AUTONOMY
 
 For authorized, reversible, project-local work:
-- execute;
+- execute continuously until the mission exit criteria are met;
+- verify instead of asking when authorized tools can establish the fact;
+- fix instead of reporting when the defect is within scope and authority;
+- preserve granted reversible authority across retries, tests and ECC reloads;
 - do not ask unnecessary confirmations;
-- show checkpoints on long-running tasks;
-- report evidence and blockers.
+- do not create conversational checkpoints merely because a technical gate was executed;
+- report evidence at completion and report blockers only when they are genuine.
 
 Do not infer permission for:
 - destructive actions;
 - irreversible migrations;
-- high-impact production changes;
+- high-impact production changes outside the already-authorized blast radius;
 - critical secret rotation;
 - financial commitments;
 - security-boundary bypasses.
+
+The detailed continuous-execution rules above are mandatory for every Orizon project unless a project-local rule is more restrictive.
 
 ---
 
