@@ -11,6 +11,7 @@ Before material work:
    - `orizon/policies/ORIZON-ECC-MANDATORY-SESSION-ENTRY.md`
    - `orizon/policies/ORIZON-ECC-SUPREMACY-LEGACY-PRECEDENCE.md`
    - `orizon/policies/ORIZON-CONTINUOUS-AUTONOMOUS-EXECUTION-POLICY.md`
+   - `orizon/policies/ORIZON-TASK-COMPLETION-NOTIFICATION-POLICY.md`
    - `orizon-engineering-profile`
    - `orizon-engineering-os`
 4. Preserve the active mission, current project, roadmap, phase, working state, and already-authorized reversible work.

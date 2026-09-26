@@ -25,6 +25,7 @@ Also apply `orizon-engineering-handbook` and load only the company standards rel
 11. Finish with a production/go-live checklist and state remaining blockers explicitly.
 12. Apply `orizon/policies/ORIZON-ECC-SUPREMACY-LEGACY-PRECEDENCE.md`: ECC is the current governing authority; legacy Strategy, Central Office, Hub, Birth Lifecycle, superseded Bootstrap, Official Resume, and historical governance hooks are non-blocking unless explicitly re-adopted by current ECC.
 13. Apply `orizon/policies/ORIZON-CONTINUOUS-AUTONOMOUS-EXECUTION-POLICY.md`: once a mission is authorized, continue autonomously through fixable failures until acceptance criteria are met or a genuine human gate is reached. Verify instead of asking, fix instead of reporting, and never create artificial approval checkpoints.
+14. Apply `orizon/policies/ORIZON-TASK-COMPLETION-NOTIFICATION-POLICY.md`: upon genuine completion of a material engineering mission, emit an automated completion notification through the canonical Orizon notification service without creating an artificial approval checkpoint. Decouple notification transport from task completion status, and never expose notification tokens.
 
 ## ECC Orchestration
 

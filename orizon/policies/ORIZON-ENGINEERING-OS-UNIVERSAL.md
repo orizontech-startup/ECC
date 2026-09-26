@@ -67,6 +67,7 @@ Mandatory invariants:
 - `APPLY_ORIZON_ENGINEERING_PROFILE`
 - `APPLY_ORIZON_ENGINEERING_OS`
 - `PRESERVE_ACTIVE_MISSION_AND_WORKING_STATE`
+- `EVERY_COMPLETED_ORIZON_TASK_EMITS_COMPLETION_NOTIFICATION`
 
 Every Orizon project must expose a local harness-native pointer back to the canonical ECC so that an agent encounters the current corporate rules on project entry. Do not copy the whole policy into each repository; point to the ECC as source of truth.
 
@@ -268,6 +269,33 @@ AUTHORIZED MISSION
 
 ---
 
+
+---
+
+# TASK COMPLETION NOTIFICATION POLICY
+
+Every Orizon Tech agent, automated process, and execution environment must emit an automated completion notification through the canonical Orizon notification service upon genuine completion of a material engineering mission.
+
+Canonical policy: `orizon/policies/ORIZON-TASK-COMPLETION-NOTIFICATION-POLICY.md`.
+
+Mandatory invariants:
+
+- `EVERY_COMPLETED_ORIZON_TASK_EMITS_COMPLETION_NOTIFICATION`
+- `NOTIFY_ONLY_AFTER_REAL_COMPLETION`
+- `PROJECT_AGENT_TASK_AND_RESULT_MUST_BE_IDENTIFIABLE`
+- `USE_CANONICAL_ORIZON_NOTIFICATION_SERVICE`
+- `NOTIFICATION_FAILURE_DOES_NOT_REVERSE_REAL_TASK_COMPLETION`
+- `NOTIFICATION_FAILURE_MUST_BE_RECORDED_AND_RETRIED_WHEN_SAFE`
+- `NEVER_EXPOSE_NOTIFICATION_OR_META_SECRETS`
+- `DO_NOT_DUPLICATE_THE_SAME_COMPLETION_EVENT`
+
+Notification rules:
+1. **Service endpoint:** `POST https://api.useorizon.com/internal/task-notifications`.
+2. **Decoupled routing:** Never hard-code personal phone numbers or recipient contact lists in client projects or within the ECC; recipients and channels are managed centrally.
+3. **Decoupled task status:** If the engineering mission is completely verified, the task is `COMPLETED`. A transport failure in notification delivery does not roll back or invalidate completed work.
+4. **No artificial stop:** Dispatching the completion notification is an automated final step of mission closure; it must not create a conversational pause or approval gate.
+5. **Secret protection:** `TASK_NOTIFICATION_TOKEN` and vendor tokens must be resolved from environment variables/secret stores and never committed to Git or printed in cleartext.
+
 # MISSION CLASSIFICATION
 
 Classify each material task as one or more of:
@@ -315,6 +343,7 @@ OWNER INTENT
   -> SECURITY
   -> RUNTIME EVIDENCE
   -> GO-LIVE STATE
+  -> COMPLETION NOTIFICATION
   -> DOCUMENTATION
   -> LEARNING
 ```
@@ -786,6 +815,7 @@ EVIDENCE:
 GITHUB:
 RISKS:
 GO-LIVE:
+NOTIFICATION: [EMITTED / FAILED / RETRIED]
 BLOCKERS:
 NEXT EXECUTABLE STEP:
 ```

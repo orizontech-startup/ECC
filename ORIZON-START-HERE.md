@@ -14,6 +14,7 @@ Read and apply:
 2. `orizon/policies/ORIZON-ECC-MANDATORY-SESSION-ENTRY.md`
 3. `orizon/policies/ORIZON-ECC-SUPREMACY-LEGACY-PRECEDENCE.md`
 4. `orizon/policies/ORIZON-CONTINUOUS-AUTONOMOUS-EXECUTION-POLICY.md`
+5. `orizon/policies/ORIZON-TASK-COMPLETION-NOTIFICATION-POLICY.md`
 
 Then apply the ECC skills:
 
@@ -39,6 +40,7 @@ Then apply the ECC skills:
 - Once a mission is authorized, continue autonomously until its exit criteria are met or a genuine human gate is reached.
 - Verify with tools instead of asking the owner when the fact is directly observable.
 - Fix in-scope failures instead of stopping to report them when they can be remediated safely.
+- On real material task completion, emit an automated completion notification to the canonical Orizon notification service without creating artificial approval pauses.
 
 ## Minimal instruction for a new chat
 
@@ -50,7 +52,7 @@ If a user says this phrase, or a clear equivalent such as `veja o repo ECC`, `ab
 
 1. use this repository as the canonical ECC source;
 2. read this `ORIZON-START-HERE.md` file;
-3. load `orizon/policies/ORIZON-ENGINEERING-OS-UNIVERSAL.md`, `orizon/policies/ORIZON-ECC-MANDATORY-SESSION-ENTRY.md` and `orizon/policies/ORIZON-ECC-SUPREMACY-LEGACY-PRECEDENCE.md`;
+3. load mandatory policies: `ORIZON-ENGINEERING-OS-UNIVERSAL.md`, `ORIZON-ECC-MANDATORY-SESSION-ENTRY.md`, `ORIZON-ECC-SUPREMACY-LEGACY-PRECEDENCE.md`, `ORIZON-CONTINUOUS-AUTONOMOUS-EXECUTION-POLICY.md` and `ORIZON-TASK-COMPLETION-NOTIFICATION-POLICY.md`;
 4. apply `orizon-engineering-profile` and `orizon-engineering-os`;
 5. identify the current project/repository and its local rules;
 6. preserve the active mission, frozen scope/roadmap, current phase and already-authorized reversible work;
