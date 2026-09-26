@@ -10,7 +10,8 @@ If you are an AI agent, engineer, or new chat working on any Orizon Tech project
 
 Read and apply:
 
-`orizon/policies/ORIZON-ENGINEERING-OS-UNIVERSAL.md`
+1. `orizon/policies/ORIZON-ENGINEERING-OS-UNIVERSAL.md`
+2. `orizon/policies/ORIZON-CONTINUOUS-AUTONOMOUS-EXECUTION-POLICY.md`
 
 Then apply the ECC skills:
 
@@ -29,6 +30,9 @@ Then apply the ECC skills:
 - Loading ECC does **not** reset or replace an active mission.
 - Preserve the current project, scope, roadmap, phase, working tree and already-authorized reversible work unless evidence proves they are invalid.
 - Do not ask the owner to re-authorize work that was already authorized merely because ECC was loaded.
+- Once a mission is authorized, continue autonomously until its exit criteria are met or a genuine human gate is reached.
+- Verify with tools instead of asking the owner when the fact is directly observable.
+- Fix in-scope failures instead of stopping to report them when they can be remediated safely.
 
 ## Minimal instruction for a new chat
 
@@ -45,6 +49,9 @@ If a user says this phrase, or a clear equivalent such as `veja o repo ECC`, `ab
 5. identify the current project/repository and its local rules;
 6. preserve the active mission, frozen scope/roadmap, current phase and already-authorized reversible work;
 7. inspect any current working tree/uncommitted state;
-8. continue the current task from the exact point where it was before ECC activation, now under the Orizon Engineering OS.
+8. continue the current task from the exact point where it was before ECC activation, now under the Orizon Engineering OS;
+9. keep executing through fixable failures and intermediate gates until the mission is complete or a genuine blocker requires human intervention.
 
 Do not interpret ECC activation as a new target. Do not stop valid in-progress work only because ECC was loaded. Do not require the user to remember or repeat a longer bootstrap prompt, and do not ask the user to restate the ECC instructions when this short trigger is used.
+
+The default operating mode is continuous autonomous execution: execute, verify, fix, retest and continue. Technical failures are work to resolve, not reasons to hand control back to the owner.

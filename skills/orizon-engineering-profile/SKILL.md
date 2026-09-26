@@ -22,11 +22,14 @@ Also apply `orizon-engineering-handbook` and load only the company standards rel
 8. Use GitHub as the source of truth for code changes. Do not use visual builders to mutate source when a repository is authoritative.
 9. Record meaningful architecture or operational decisions in the project's existing documentation structure.
 10. Finish with a production/go-live checklist and state remaining blockers explicitly.
+11. Apply `orizon/policies/ORIZON-CONTINUOUS-AUTONOMOUS-EXECUTION-POLICY.md`: once a mission is authorized, continue autonomously through fixable failures until acceptance criteria are met or a genuine human gate is reached. Verify instead of asking, fix instead of reporting, and never create artificial approval checkpoints.
 
 ## ECC Orchestration
 
 Use ECC capabilities as needed: planner -> architect -> tdd-guide -> implementation -> code-reviewer -> security-reviewer -> e2e-runner -> verify.
 Parallelize only independent work. Never report a test, deploy or validation as successful unless it was actually executed and passed.
+
+ECC gates are validation gates, not conversational pause points. A failed test/build/runtime check should trigger diagnose -> fix -> retest -> continue whenever the work is within scope and existing authority.
 
 ## Project Overrides
 
