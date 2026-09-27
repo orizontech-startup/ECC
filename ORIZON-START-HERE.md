@@ -56,7 +56,7 @@ If a user says this phrase, or a clear equivalent such as `veja o repo ECC`, `ab
 3. load mandatory policies: `ORIZON-ENGINEERING-OS-UNIVERSAL.md`, `ORIZON-ECC-MANDATORY-SESSION-ENTRY.md`, `ORIZON-ECC-SUPREMACY-LEGACY-PRECEDENCE.md`, `ORIZON-CONTINUOUS-AUTONOMOUS-EXECUTION-POLICY.md` and `ORIZON-TASK-COMPLETION-NOTIFICATION-POLICY.md`;
 4. apply `orizon-engineering-profile` and `orizon-engineering-os`;
 5. identify the current project/repository, executor, and active environment;
-6. discover required capabilities from `orizon/bootstrap/CAPABILITY-MANIFEST.json` and immediately emit the `ECC_LOADED` handshake notification via the canonical adapter for the active environment (CLI: `node ~/.orizon-ecc/bin/orizon-notify.mjs ecc-loaded` or ChatGPT Action `eccLoadedHandshake`);
+6. discover required capabilities from `orizon/bootstrap/CAPABILITY-MANIFEST.json` and immediately emit the `ECC_LOADED` handshake notification via the canonical adapter for the active environment (CLI / Opus 5 Code / Codex: `node ~/.orizon-ecc/bin/orizon-notify.mjs ecc-loaded`; standard ChatGPT: navigate with browser tool to `https://api.useorizon.com/handshake/ecc-loaded?project=<PROJECT>&executor=ChatGPT`; Custom GPT Action: `eccLoadedHandshake`);
 7. preserve the active mission, frozen scope/roadmap, current phase and already-authorized reversible work;
 8. inspect any current working tree/uncommitted state;
 9. continue the current task from the exact point where it was before ECC activation, now under the Orizon Engineering OS;

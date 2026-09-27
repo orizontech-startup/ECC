@@ -27,7 +27,14 @@
           "usage_ecc_loaded": "node ~/.orizon-ecc/bin/orizon-notify.mjs ecc-loaded",
           "usage_work_completed": "node ~/.orizon-ecc/bin/orizon-notify.mjs work-completed --task \"<TASK>\" --result \"<RESULT>\""
         },
-        "chatgpt_action": {
+        "chatgpt_normal": {
+          "type": "browser_handshake",
+          "supported_environments": ["ChatGPT Standard Chat", "ChatGPT Plus", "ChatGPT Team"],
+          "usage_ecc_loaded": "Use browser tool to navigate to: https://api.useorizon.com/handshake/ecc-loaded?project=<PROJECT>&executor=ChatGPT",
+          "usage_work_completed": "Use browser tool to navigate to: https://api.useorizon.com/handshake/work-completed?project=<PROJECT>&task=<TASK>&status=COMPLETED&executor=ChatGPT&result=<RESULT>",
+          "secret_management": "Zero client token required. Server-side managed against allowlisted Orizon projects with destination locked to owner."
+        },
+        "chatgpt_custom_gpt": {
           "type": "openapi_action",
           "schema_path": "orizon/bootstrap/adapters/chatgpt-openapi.json",
           "schema_url": "https://api.useorizon.com/openapi/notifications.json",
