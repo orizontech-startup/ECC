@@ -15,6 +15,7 @@ Read and apply:
 3. `orizon/policies/ORIZON-ECC-SUPREMACY-LEGACY-PRECEDENCE.md`
 4. `orizon/policies/ORIZON-CONTINUOUS-AUTONOMOUS-EXECUTION-POLICY.md`
 5. `orizon/policies/ORIZON-TASK-COMPLETION-NOTIFICATION-POLICY.md`
+6. `orizon/policies/ORIZON-ZERO-OPERATIONAL-FAKE-DATA-POLICY.md`
 
 Then apply the ECC skills:
 
