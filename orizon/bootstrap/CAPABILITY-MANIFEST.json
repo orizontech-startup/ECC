@@ -28,11 +28,20 @@
           "usage_work_completed": "node ~/.orizon-ecc/bin/orizon-notify.mjs work-completed --task \"<TASK>\" --result \"<RESULT>\""
         },
         "chatgpt_normal": {
-          "type": "browser_handshake",
-          "supported_environments": ["ChatGPT Standard Chat", "ChatGPT Plus", "ChatGPT Team"],
-          "usage_ecc_loaded": "Use browser tool to navigate to: https://api.useorizon.com/handshake/ecc-loaded?project=<PROJECT>&executor=ChatGPT",
-          "usage_work_completed": "Use browser tool to navigate to: https://api.useorizon.com/handshake/work-completed?project=<PROJECT>&task=<TASK>&status=COMPLETED&executor=ChatGPT&result=<RESULT>",
-          "secret_management": "Zero client token required. Server-side managed against allowlisted Orizon projects with destination locked to owner."
+          "type": "remote_mcp_app",
+          "endpoint": "https://api.useorizon.com/mcp/notifications",
+          "protocol": "mcp-jsonrpc-2.0",
+          "transport": "http",
+          "supported_environments": ["ChatGPT Standard Chat", "ChatGPT Plus", "ChatGPT Team", "ChatGPT Enterprise"],
+          "tools": [
+            "orizon_ecc_loaded",
+            "orizon_work_unit_completed"
+          ],
+          "operations": {
+            "ecc_loaded": "Call tool orizon_ecc_loaded({ project, executor, ref })",
+            "work_unit_completed": "Call tool orizon_work_unit_completed({ project, task, status, executor, result, ref })"
+          },
+          "secret_management": "Zero client token required. Server-side managed with destination locked to owner WhatsApp."
         },
         "chatgpt_custom_gpt": {
           "type": "openapi_action",

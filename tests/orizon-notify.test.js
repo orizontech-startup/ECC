@@ -23,7 +23,8 @@ describe('ORIZON NOTIFY Runtime & Universal Bootstrap', () => {
     const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
     expect(manifest.capabilities.ORIZON_NOTIFICATION).toBeDefined();
     expect(manifest.capabilities.ORIZON_NOTIFICATION.adapters.cli).toBeDefined();
-    expect(manifest.capabilities.ORIZON_NOTIFICATION.adapters.chatgpt_action).toBeDefined();
+    expect(manifest.capabilities.ORIZON_NOTIFICATION.adapters.chatgpt_normal).toBeDefined();
+    expect(manifest.capabilities.ORIZON_NOTIFICATION.adapters.chatgpt_normal.type).toBe('remote_mcp_app');
   });
 
   it('3. OpenAPI schema exists and covers ecc-loaded and work-unit-completed', () => {
