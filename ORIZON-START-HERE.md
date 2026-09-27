@@ -40,7 +40,8 @@ Then apply the ECC skills:
 - Once a mission is authorized, continue autonomously until its exit criteria are met or a genuine human gate is reached.
 - Verify with tools instead of asking the owner when the fact is directly observable.
 - Fix in-scope failures instead of stopping to report them when they can be remediated safely.
-- On real material task completion, emit an automated completion notification to the canonical Orizon notification service without creating artificial approval pauses.
+- On loading/reloading ECC, immediately emit the mandatory ECC_LOADED handshake notification to the canonical Orizon notification service without resetting the active mission or creating artificial pauses.
+- On completing any material work unit (task, milestone, phase, release), automatically emit the WORK_UNIT_COMPLETED notification without spamming micro-actions.
 
 ## Minimal instruction for a new chat
 
@@ -55,10 +56,12 @@ If a user says this phrase, or a clear equivalent such as `veja o repo ECC`, `ab
 3. load mandatory policies: `ORIZON-ENGINEERING-OS-UNIVERSAL.md`, `ORIZON-ECC-MANDATORY-SESSION-ENTRY.md`, `ORIZON-ECC-SUPREMACY-LEGACY-PRECEDENCE.md`, `ORIZON-CONTINUOUS-AUTONOMOUS-EXECUTION-POLICY.md` and `ORIZON-TASK-COMPLETION-NOTIFICATION-POLICY.md`;
 4. apply `orizon-engineering-profile` and `orizon-engineering-os`;
 5. identify the current project/repository and its local rules;
-6. preserve the active mission, frozen scope/roadmap, current phase and already-authorized reversible work;
-7. inspect any current working tree/uncommitted state;
-8. continue the current task from the exact point where it was before ECC activation, now under the Orizon Engineering OS;
-9. keep executing through fixable failures and intermediate gates until the mission is complete or a genuine blocker requires human intervention.
+6. emit the immediate ECC_LOADED handshake notification to the canonical Orizon notification service;
+7. preserve the active mission, frozen scope/roadmap, current phase and already-authorized reversible work;
+8. inspect any current working tree/uncommitted state;
+9. continue the current task from the exact point where it was before ECC activation, now under the Orizon Engineering OS;
+10. keep executing through fixable failures and intermediate gates until the mission is complete or a genuine blocker requires human intervention;
+11. upon real material completion, automatically emit the WORK_UNIT_COMPLETED notification before final close.
 
 Do not interpret ECC activation as a new target. Do not stop valid in-progress work only because ECC was loaded. Do not require the user to remember or repeat a longer bootstrap prompt, and do not ask the user to restate the ECC instructions when this short trigger is used.
 

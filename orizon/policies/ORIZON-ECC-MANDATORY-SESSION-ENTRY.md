@@ -28,6 +28,8 @@ Mandatory invariants:
 - `READ_ECC_SUPREMACY_POLICY`
 - `READ_CONTINUOUS_AUTONOMOUS_EXECUTION_POLICY`
 - `READ_TASK_COMPLETION_NOTIFICATION_POLICY`
+- `EMIT_ECC_LOADED_HANDSHAKE_ON_ENTRY`
+- `EMIT_WORK_UNIT_COMPLETED_ON_MATERIAL_FINISH`
 - `APPLY_ORIZON_ENGINEERING_PROFILE`
 - `APPLY_ORIZON_ENGINEERING_OS`
 - `PRESERVE_ACTIVE_MISSION_AND_WORKING_STATE`
@@ -58,7 +60,8 @@ FETCH latest main from orizontech-startup/ECC
   -> ORIZON-TASK-COMPLETION-NOTIFICATION-POLICY.md
   -> orizon-engineering-profile
   -> orizon-engineering-os
-  -> current project-local context
+  -> identify project & executor
+  -> emit ECC_LOADED handshake notification
   -> preserve/continue active mission
 ```
 
