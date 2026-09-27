@@ -1,0 +1,165 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Orizon Notifications API",
+    "description": "Canonical notification service for Orizon Tech agents, Custom GPTs, and automations.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.useorizon.com",
+      "description": "Production API"
+    }
+  ],
+  "paths": {
+    "/actions/notifications/ecc-loaded": {
+      "post": {
+        "operationId": "eccLoadedHandshake",
+        "summary": "Emit immediate operational handshake after loading Orizon ECC",
+        "description": "Dispatches an operational handshake to the Orizon central notification service informing the owner that the agent has loaded the ECC, identified project and executor, and recognized governance. The backend manages routing and credentials securely.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EccLoadedRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Handshake accepted by Orizon notification infrastructure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid payload parameters"
+          },
+          "502": {
+            "description": "Notification delivery failure"
+          }
+        }
+      }
+    },
+    "/actions/notifications/work-unit-completed": {
+      "post": {
+        "operationId": "workUnitCompletedNotification",
+        "summary": "Emit completion notification for a material work unit",
+        "description": "Dispatches a formal completion notification to the Orizon central notification service upon real completion of a material work unit (milestone, feature, task, release). Not for micro-actions.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkUnitCompletedRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Completion notification accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid payload parameters"
+          },
+          "502": {
+            "description": "Notification delivery failure"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EccLoadedRequest": {
+        "type": "object",
+        "required": ["project", "executor"],
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Name of the Orizon project being worked on (e.g. 'ORIZON CONTROL', 'CONNECTMAR', 'ORIZON AGENTES')",
+            "example": "ORIZON CONTROL"
+          },
+          "executor": {
+            "type": "string",
+            "description": "Name of the AI agent executing (e.g. 'ChatGPT', 'Opus 5 Code')",
+            "example": "ChatGPT"
+          },
+          "ref": {
+            "type": "string",
+            "description": "Optional Git commit SHA, branch, or release reference",
+            "example": "main@118a4441"
+          }
+        }
+      },
+      "WorkUnitCompletedRequest": {
+        "type": "object",
+        "required": ["project", "task", "executor", "result"],
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Name of the project",
+            "example": "ORIZON CONTROL"
+          },
+          "task": {
+            "type": "string",
+            "description": "Concrete title of the completed work unit",
+            "example": "Correção do controle remoto"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["COMPLETED", "BLOCKED", "FAILED"],
+            "default": "COMPLETED",
+            "description": "Status of the work unit"
+          },
+          "executor": {
+            "type": "string",
+            "description": "Name of the agent",
+            "example": "ChatGPT"
+          },
+          "result": {
+            "type": "string",
+            "description": "Factual summary of what was accomplished and verified",
+            "example": "Controle remoto corrigido e validado em produção."
+          },
+          "ref": {
+            "type": "string",
+            "description": "Optional reference (commit, PR, deploy)",
+            "example": "commit 45bb0628"
+          }
+        }
+      },
+      "NotificationResponse": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "example": true
+          },
+          "event": {
+            "type": "string",
+            "example": "ECC_LOADED"
+          },
+          "wamid": {
+            "type": "string",
+            "example": "wamid.HBgLMTIzNDU2Nzg5MA=="
+          }
+        }
+      }
+    }
+  }
+}

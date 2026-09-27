@@ -1,0 +1,57 @@
+{
+  "manifest_version": "1.0.0",
+  "ecosystem": "Orizon Tech",
+  "purpose": "Universal runtime capability discovery for agents, automations, and environments operating under Orizon Engineering OS / ECC",
+  "capabilities": {
+    "ORIZON_NOTIFICATION": {
+      "description": "Automated operational handshake and task completion notifications via centralized Orizon notification infrastructure",
+      "required": true,
+      "operations": [
+        {
+          "name": "ecc_loaded",
+          "timing": "immediate_on_bootstrap",
+          "purpose": "Operational handshake informing owner that the agent loaded ECC, identified project and executor, and acknowledged governance"
+        },
+        {
+          "name": "work_unit_completed",
+          "timing": "on_material_finish",
+          "purpose": "Completion notification dispatched upon real completion of a material work unit (task, phase, milestone, release)"
+        }
+      ],
+      "adapters": {
+        "cli": {
+          "type": "executable_script",
+          "entrypoint": "orizon/bin/orizon-notify.mjs",
+          "portable_entrypoint": "~/.orizon-ecc/bin/orizon-notify.mjs",
+          "supported_environments": ["Opus 5 Code", "Codex", "Terminal", "Local Automation"],
+          "usage_ecc_loaded": "node ~/.orizon-ecc/bin/orizon-notify.mjs ecc-loaded",
+          "usage_work_completed": "node ~/.orizon-ecc/bin/orizon-notify.mjs work-completed --task \"<TASK>\" --result \"<RESULT>\""
+        },
+        "chatgpt_action": {
+          "type": "openapi_action",
+          "schema_path": "orizon/bootstrap/adapters/chatgpt-openapi.json",
+          "schema_url": "https://api.useorizon.com/openapi/notifications.json",
+          "supported_environments": ["ChatGPT Custom GPT", "OpenAI GPT Actions"],
+          "operations": {
+            "ecc_loaded": "POST /actions/notifications/ecc-loaded",
+            "work_unit_completed": "POST /actions/notifications/work-unit-completed"
+          }
+        },
+        "mcp": {
+          "type": "model_context_protocol",
+          "supported_environments": ["Opus 5 Desktop", "Cursor", "Zed", "Opus 5 Code MCP", "Windsurf"],
+          "tools": [
+            "orizon_control_trigger_automation",
+            "orizon_notify_ecc_loaded",
+            "orizon_notify_work_unit_completed"
+          ]
+        },
+        "http": {
+          "type": "rest_endpoint",
+          "endpoint": "POST https://api.useorizon.com/internal/task-notifications",
+          "supported_environments": ["GitHub Actions", "CI/CD Pipelines", "Webhooks", "Custom Integrations"]
+        }
+      }
+    }
+  }
+}
