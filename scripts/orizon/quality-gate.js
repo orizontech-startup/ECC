@@ -13,9 +13,12 @@ function exe(name) {
 
 function run(name, command, args = [], options = {}) {
   const started = Date.now();
+  const isWin = process.platform === 'win32';
   const result = spawnSync(exe(command), args, {
     cwd: root,
     stdio: 'inherit',
+    shell: isWin,
+    windowsHide: true,
     env: { ...process.env, CI: 'true', ...options.env }
   });
   const ok = result.status === 0;
