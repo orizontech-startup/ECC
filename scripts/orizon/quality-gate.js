@@ -97,6 +97,49 @@ if (fs.existsSync(path.join(root, 'pyproject.toml')) || fs.existsSync(path.join(
 report.state = failed ? 'QUALITY_GATE_FAIL' : 'QUALITY_GATE_PASS';
 const outDir = path.join(root, '.orizon');
 try { fs.mkdirSync(outDir, { recursive: true }); } catch (error) { console.warn(error.message); }
+// --- Universal Completion Gate Hook ---
+const cliArgs = process.argv.slice(2);
+function getCliOption(flag) {
+  const idx = cliArgs.indexOf(flag);
+  return idx !== -1 && idx + 1 < cliArgs.length ? cliArgs[idx + 1] : undefined;
+}
+const completeStage = getCliOption('--complete-stage');
+const completePhase = getCliOption('--complete-phase');
+const resultSummary = getCliOption('--result') || 'Quality Gate validado e aprovado com sucesso.';
+const nextStep = getCliOption('--next-stage') || getCliOption('--next-phase');
+const refArg = getCliOption('--ref');
+
+if (!failed && (completeStage || completePhase)) {
+  const os = require('os');
+  const notifyScript = path.join(__dirname, '../../orizon/bin/orizon-notify.mjs');
+  const portableScript = path.join(os.homedir(), '.orizon-ecc/bin/orizon-notify.mjs');
+  const targetScript = fs.existsSync(notifyScript) ? notifyScript : portableScript;
+
+  if (fs.existsSync(targetScript)) {
+    const eventType = completeStage ? 'stage-completed' : 'phase-completed';
+    const nameArgs = completeStage ? ['--stage', completeStage] : ['--phase', completePhase];
+    const extraArgs = [];
+    if (nextStep) extraArgs.push(completeStage ? '--next-stage' : '--next-phase', nextStep);
+    if (refArg) extraArgs.push('--ref', refArg);
+
+    const res = spawnSync(process.execPath, [targetScript, eventType, ...nameArgs, '--result', resultSummary, ...extraArgs], {
+      cwd: root,
+      stdio: 'inherit',
+      env: process.env,
+    });
+    report.completionNotification = {
+      triggered: true,
+      eventType,
+      ok: res.status === 0,
+      exitCode: res.status,
+    };
+  } else {
+    report.completionNotification = { triggered: false, reason: 'notify_runtime_not_found' };
+  }
+} else if (failed && (completeStage || completePhase)) {
+  report.completionNotification = { triggered: false, reason: 'quality_gate_failed' };
+}
+
 try { fs.writeFileSync(path.join(outDir, 'gate-report.json'), JSON.stringify(report, null, 2) + '\n'); } catch (error) { console.warn(error.message); }
 
 console.log('\n=== ORIZON QUALITY GATE ===');

@@ -110,3 +110,4 @@ assets/images/security/badrudi-exploit.mp4
 
 # Orizon Engineering OS local gate evidence
 .orizon/gate-report.json
+.orizon/
