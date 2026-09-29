@@ -75,31 +75,37 @@ function resolveToken(explicitToken) {
 
 // 2. Project Name Auto-Discovery
 function discoverProject(explicitProject) {
-  if (explicitProject) return explicitProject.trim();
+  if (explicitProject && typeof explicitProject === 'string') return explicitProject.trim();
   if (process.env.ORIZON_PROJECT_NAME) return process.env.ORIZON_PROJECT_NAME.trim();
   if (process.env.PROJECT_NAME) return process.env.PROJECT_NAME.trim();
 
+  let probe = '';
   try {
     const remoteUrl = execSync('git remote get-url origin', { encoding: 'utf8', stdio: ['pipe', 'pipe', 'ignore'], timeout: 1500 }).trim();
-    const match = remoteUrl.match(/[/\\]([^/\\]+?)(\.git)?$/);
-    if (match && match[1]) {
-      const cleanName = match[1].replace(/\.git$/, '').toUpperCase();
-      if (cleanName === 'ORIZONAGENTS' || cleanName === 'ORIZON-AGENTS') return 'ORIZON AGENTES';
-      if (cleanName === 'ECC') return 'ECC';
-      if (cleanName === 'ATLETA360') return 'ATLETA 360';
-      if (cleanName === 'BALAGUERIMOVEIS26') return 'BALAGUER';
-      return cleanName;
-    }
+    probe = remoteUrl.toLowerCase();
   } catch {}
 
-  try {
-    if (fs.existsSync('package.json')) {
-      const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-      if (pkg.name) return String(pkg.name).toUpperCase();
-    }
-  } catch {}
+  if (!probe) {
+    probe = process.cwd().toLowerCase();
+  }
 
-  return path.basename(process.cwd()).toUpperCase();
+  if (probe.includes('orizon-control') || probe.includes('orizoncontrol')) return 'Orizon Control';
+  if (probe.includes('orizon-engineering')) return 'Orizon Control';
+  if (probe.includes('orizonagents') || probe.includes('orizon-agents')) return 'Orizon Agentes';
+  if (probe.includes('atleta360') || probe.includes('atleta-360')) return 'Atleta 360';
+  if (probe.includes('crmfolegodevida') || probe.includes('folego-de-vida') || probe.includes('folegodevida')) return 'Fôlego de Vida';
+  if (probe.includes('connectmar') || probe.includes('connect-mar')) return 'ConnectMAR';
+  if (probe.includes('orizon-strategy')) return 'Orizon Strategy';
+  if (probe.includes('orizon-station')) return 'Orizon Station';
+  if (probe.includes('orizon-caio')) return 'Orizon CAIO';
+  if (probe.includes('orizon-ai-platform')) return 'Orizon AI Platform';
+  if (probe.includes('orizon-central-office')) return 'Orizon Central Office';
+  if (probe.includes('goyta')) return 'Goyta';
+  if (probe.includes('two') || probe.includes('vempratwo')) return 'Two Telecom';
+  if (probe.includes('balaguer')) return 'Balaguer Imóveis';
+  if (probe.includes('ecc') || probe.includes('orizon-ecc')) return 'Orizon Engineering OS';
+
+  return 'Orizon Agentes';
 }
 
 // 3. Executor Auto-Discovery
@@ -121,30 +127,54 @@ function discoverRef(explicitRef) {
   return undefined;
 }
 
-// 5. Completion Ledger & Idempotency
-function getLedgerPath() {
-  const dir = path.join(process.cwd(), '.orizon');
-  if (!fs.existsSync(dir)) {
-    try { fs.mkdirSync(dir, { recursive: true }); } catch {}
+// 5. Completion Ledger & Idempotency (Dual: Central ~/.orizon + Local Project)
+function getLedgerPaths() {
+  const paths = [];
+  const centralDir = path.join(os.homedir(), '.orizon');
+  if (!fs.existsSync(centralDir)) {
+    try { fs.mkdirSync(centralDir, { recursive: true }); } catch {}
   }
-  return path.join(dir, 'completion-ledger.json');
+  paths.push(path.join(centralDir, 'completion-ledger.json'));
+
+  const localDir = path.join(process.cwd(), '.orizon');
+  if (!fs.existsSync(localDir)) {
+    try { fs.mkdirSync(localDir, { recursive: true }); } catch {}
+  }
+  paths.push(path.join(localDir, 'completion-ledger.json'));
+
+  return paths;
 }
 
 function readLedger() {
-  const p = getLedgerPath();
-  if (fs.existsSync(p)) {
-    try {
-      return JSON.parse(fs.readFileSync(p, 'utf8'));
-    } catch {}
+  const paths = getLedgerPaths();
+  const combined = [];
+  for (const p of paths) {
+    if (fs.existsSync(p)) {
+      try {
+        const d = JSON.parse(fs.readFileSync(p, 'utf8'));
+        if (Array.isArray(d.entries)) combined.push(...d.entries);
+      } catch {}
+    }
   }
-  return { version: 1, entries: [] };
+  const seen = new Set();
+  const unique = [];
+  for (const entry of combined) {
+    const k = entry.id || entry.idempotencyKey;
+    if (k && !seen.has(k)) {
+      seen.add(k);
+      unique.push(entry);
+    }
+  }
+  return { version: 1, entries: unique };
 }
 
 function writeLedger(ledger) {
-  const p = getLedgerPath();
-  try {
-    fs.writeFileSync(p, JSON.stringify(ledger, null, 2) + '\n', 'utf8');
-  } catch {}
+  const paths = getLedgerPaths();
+  for (const p of paths) {
+    try {
+      fs.writeFileSync(p, JSON.stringify(ledger, null, 2) + '\n', 'utf8');
+    } catch {}
+  }
 }
 
 function computeIdempotencyKey(eventType, project, name, ref) {
@@ -165,7 +195,7 @@ function checkIdempotency(key) {
 function recordInLedger(entry) {
   const ledger = readLedger();
   ledger.entries.unshift(entry);
-  if (ledger.entries.length > 100) ledger.entries = ledger.entries.slice(0, 100);
+  if (ledger.entries.length > 200) ledger.entries = ledger.entries.slice(0, 200);
   writeLedger(ledger);
 }
 
