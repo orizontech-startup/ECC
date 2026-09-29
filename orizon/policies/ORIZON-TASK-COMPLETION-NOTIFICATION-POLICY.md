@@ -1,123 +1,98 @@
-# ORIZON TASK COMPLETION & ECC HANDSHAKE NOTIFICATION POLICY
+# ORIZON TASK COMPLETION & OPERATIONAL NOTIFICATION POLICY
 
-**Version:** 2.1.0  
+**Version:** 3.0.0  
 **Owner:** Orizon Tech  
 **Canonical repository:** `orizontech-startup/ECC`  
 **Canonical file:** `orizon/policies/ORIZON-TASK-COMPLETION-NOTIFICATION-POLICY.md`
 
 ## Purpose
 
-This policy establishes the universal operational handshake and task completion notification standard across the entire Orizon Tech ecosystem.
+This policy establishes the universal task completion notification standard across the entire Orizon Tech ecosystem.
 
-Every agent (Opus 5 Code, ChatGPT/GPT, Codex, internal agents, CI/CD pipelines, or autonomous systems) governed by the Orizon Engineering OS / ECC, in any current or future repository, and across any material engineering or operational front, must emit notifications through the canonical Orizon notification service for mandatory lifecycle events:
-
-1. **`ECC_LOADED`**: Immediate handshake upon loading or reloading the canonical ECC.
-2. **`STAGE_COMPLETED`**: Completion of a defined engineering or operational stage.
-3. **`PHASE_COMPLETED`**: Completion of a major roadmap phase or strategic milestone.
-4. **`WORK_UNIT_COMPLETED`**: General material work unit delivery.
+Notifications via WhatsApp are a human-to-human communication layer between the engineering team/agents and the owner (Ricardo). They must be sent **only** upon REAL MATERIAL COMPLETIONS, using natural, cordial Brazilian Portuguese, commercial project names, and clean bullet points without technical noise or jargon.
 
 ---
 
 ## 1. MANDATORY INVARIANTS
 
-- `NO_FORMAL_STAGE_OR_PHASE_COMPLETION_WITHOUT_NOTIFICATION_GATE`
-- `ECC_LOADED_EMITTED_IMMEDIATELY_AFTER_BOOTSTRAP`
-- `EVERY_COMPLETED_ORIZON_WORK_UNIT_EMITS_NOTIFICATION`
-- `ECC_HANDSHAKE_DOES_NOT_RESET_ACTIVE_MISSION`
+- `WHATSAPP_ONLY_FOR_REAL_MATERIAL_DELIVERIES`
+- `NO_WHATSAPP_ON_INTERNAL_OR_INTERMEDIATE_ACTIVITY`
+- `ECC_LOADED_DOES_NOT_DISPATCH_WHATSAPP`
+- `USE_COMMERCIAL_HUMAN_PROJECT_NAMES`
+- `HUMAN_CONVERSATIONAL_LANGUAGE_WITHOUT_TECHNICAL_NOISE`
+- `FORBIDDEN_WHATSAPP_TERMS: COMPLETED, EXACT_MATCH, SHA, COMMIT_HASH, BRANCH_NAMES, PIPES`
+- `EVERY_COMPLETED_MATERIAL_WORK_UNIT_EMITS_NOTIFICATION`
 - `NO_MICRO_ACTION_SPAM`
-- `NOTIFY_ONLY_AFTER_REAL_MATERIAL_COMPLETION`
-- `PROJECT_AGENT_TASK_AND_RESULT_MUST_BE_IDENTIFIABLE`
-- `USE_CANONICAL_ORIZON_NOTIFICATION_SERVICE`
-- `NOTIFICATION_FAILURE_DOES_NOT_REVERSE_REAL_WORK`
-- `NOTIFICATION_FAILURE_MUST_BE_RECORDED_AND_RETRIED_WHEN_SAFE`
-- `NEVER_EXPOSE_NOTIFICATION_OR_META_SECRETS`
-- `DO_NOT_DUPLICATE_THE_SAME_COMPLETION_EVENT`
+- `IDEMPOTENT_24H_DEDUPLICATION_GUARD`
+- `NOTIFICATION_FAILURE_MUST_BE_OBSERVABLE_AND_RECORDED`
+- `TECHNICAL_TRACIBILITY_PRESERVED_INTERNALLY_IN_DB_AND_LOGS`
 
 ---
 
-## 2. EVENT 1 — `ECC_LOADED` (OPERATIONAL HANDSHAKE)
+## 2. EVENT 1 — `ECC_LOADED` (INTERNAL OPERATIONAL HANDSHAKE ONLY)
 
-Whenever an agent loads, reloads, or initializes the canonical Orizon ECC, it must **immediately** emit an `ECC_LOADED` handshake event via the canonical notification service.
-
-### Objective
-The owner must know immediately that the agent:
-1. Located and read the canonical ECC;
-2. Recognized corporate engineering governance and universal policies;
-3. Identified the active project and repository;
-4. Identified its own executor identity;
-5. Acknowledges the obligation to notify subsequent material completions.
-
-### Timing
-`ECC_LOADED` must fire **immediately** upon successful ECC load/reload. It must NOT wait for task completion.
-
-### Active Mission Invariant
-Emitting `ECC_LOADED` must **never** reset the active mission, discard working state, forget the current phase, or create an artificial confirmation checkpoint. The agent emits the handshake and immediately proceeds with execution.
-
-### Payload Semantics for `ECC_LOADED`
-- **`project`**: Current project name (e.g. `"ORIZON CONTROL"`, `"CONNECTMAR"`, `"ORIZON AGENTES"`, `"ATLETA 360"`, `"BALAGUER"`).
-- **`task`**: `"ECC Orizon carregado"`.
-- **`status`**: `"COMPLETED"`.
-- **`executor`**: Name of the agent (e.g. `"Opus 5 Code"`, `"ChatGPT"`, `"Codex"`).
-- **`result`**: `"Acabei de ler o ECC da ORIZON. A partir desta execução, ao final de cada etapa/fase material concluída, enviarei uma mensagem informando o que foi realizado."`
-- **`ref`** (optional): Current ECC commit ref or local HEAD SHA.
+When an agent loads or reloads the canonical ECC:
+1. It may record the operational handshake locally and log it internally;
+2. **IT MUST NEVER DISPATCH A WHATSAPP MESSAGE TO THE OWNER.**
+Loading the ECC is an internal initialization step, not a customer/owner-facing deliverable.
 
 ---
 
-## 3. EVENTS 2 & 3 — `STAGE_COMPLETED` & `PHASE_COMPLETED` (COMPLETION GATE)
+## 3. EVENTS 2 & 3 — `STAGE_COMPLETED`, `PHASE_COMPLETED` & `WORK_UNIT_COMPLETED` (MATERIAL COMPLETIONS)
 
-**Universal Governance Rule:**
-> *Uma etapa ou fase governada pelo ECC não pode atingir estado formal COMPLETED sem que o evento obrigatório de conclusão tenha sido emitido para o mecanismo universal de notificações.*
+WhatsApp notifications are strictly reserved for REAL, VERIFIED DELIVERABLES:
+- Etapa material concluída;
+- Fase do projeto ou milestone relevante concluído;
+- Missão ou tarefa principal concluída;
+- Entrega significativa de funcionalidade;
+- Go-live / Deploy de produção homologado;
+- Certificação / Homologação técnica aprovada.
 
-### Execution Flow
-When an engineering stage or project phase is completed, the agent must invoke the canonical completion runtime:
+### Commercial Project Names
+Messages must use commercial/human project names:
+- `Orizon Control` (never `orizon-control` or `agent-connect`)
+- `Orizon Agentes` (never `orizon-engineering` or repo slugs)
+- `ConnectMAR` (never `connect-mar`)
+- `Atleta 360` (never `atleta-360`)
+- `Balaguer Imóveis` (never `balaguerimoveis26`)
+- `Orizon Engineering OS` (never bare `ecc`)
 
-```bash
-# For Stage Completion:
-node ~/.orizon-ecc/bin/orizon-notify.mjs stage-completed --stage "<STAGE_NAME>" --result "<SUMMARY>" [--next-stage "<NEXT_STAGE>"]
+### Tone, Style & Structure
+- Natural, friendly and professional Brazilian Portuguese, speaking directly to Ricardo.
+- 3 to 5 clear bullet points summarizing the real business and engineering outcome.
+- Free of technical jargon (no `COMPLETED`, `EXACT_MATCH`, SHA-1, commit hashes, branches, payloads, or pipe separators).
 
-# For Phase Completion:
-node ~/.orizon-ecc/bin/orizon-notify.mjs phase-completed --phase "<PHASE_NAME>" --result "<SUMMARY>" [--next-phase "<NEXT_PHASE>"]
-```
-
-### Standard Message Content
-The notification dispatched to WhatsApp formats concisely:
 ```text
-ORIZON TECH | Projeto: [PROJETO] | Etapa/Fase: [NOME] | Status: CONCLUÍDA | Executor: [AGENTE] | [RESUMO] | Próximo passo: [PRÓXIMA ETAPA, se conhecida]
+Olá Ricardo, o agente do projeto [Nome Humano] da Orizon Tech concluiu a execução: Encerrei uma etapa importante do trabalho: [Título Limpo].
+
+Os principais pontos foram:
+- [ponto 1 em linguagem simples];
+- [ponto 2 em linguagem simples];
+- [ponto 3 em linguagem simples].
+
+Essa etapa foi concluída com sucesso. Veja os detalhes no painel.
 ```
 
 ---
 
 ## 4. STRICT ANTI-SPAM RULE (`NO_MICRO_ACTION_SPAM`)
 
-Notifications must **never** be dispatched for micro-actions or routine intermediate operations:
-- Shell command executions (`git status`, `ls`, `curl`, `tsc`);
-- Single file reads or routine edits;
-- Individual test runs during development loops;
-- Diagnostic tool calls;
-- Partial, unfinished implementations;
-- Intermediate progress reporting.
-
-Only **material work units** (a fully finished stage, milestone, phase, or production delivery) qualify for completion dispatch.
+WhatsApp notifications are strictly FORBIDDEN for:
+- Reading or reloading ECC;
+- Running shell commands (`git status`, `ls`, `curl`, `tsc`);
+- Reading files or updating context;
+- Individual test runs or typechecks;
+- Intermediate commits or checkpoints;
+- Bootstraps and internal synchronizations;
+- Minor edits that do not constitute a material delivery.
 
 ---
 
 ## 5. RESILIENCE, IDEMPOTENCY & COMPLETION LEDGER
 
-### Idempotency (Deduplication)
-The runtime maintains a local completion ledger at `.orizon/completion-ledger.json` (gitignored). Before dispatching, it computes an idempotency key based on `${eventType}:${project}:${name}:${refOrDate}`. If the identical completion event was already notified successfully within 24 hours, the transport call is skipped (`IDEMPOTENT_SKIPPED`) preventing redundant WhatsApp messages.
-
-### Decoupled State Handling
-- **`WORK_COMPLETED`**: Technical engineering work is fully verified, tested, and complete.
-- **`NOTIFICATION_SENT`**: Universal notification was accepted and dispatched to WhatsApp.
-- **`NOTIFICATION_FAILED`**: Transient transport failure occurred. The runtime retries up to 3 times with exponential backoff. If delivery fails permanently, the technical deliverable remains `WORK_COMPLETED`, the failure is explicitly recorded in the ledger, and the failure is highlighted in the final gate report without rolling back valid work.
-
----
-
-## 6. CANONICAL NOTIFICATION SERVICE & ROUTING
-
-All events must be dispatched via HTTP POST to the centralized service:
-
-- **Service Endpoint:** `POST https://api.useorizon.com/internal/task-notifications`
+- Idempotency is enforced within a 24-hour window using `.orizon/completion-ledger.json` and database deduplication keys.
+- If a transient network failure occurs, the runtime retries with backoff.
+- If delivery fails permanently, the technical deliverable remains completed, while the notification status is recorded as `NOTIFICATION_FAILED` in the ledger and API, remaining fully observable and reprocessable.
 - **Headers:** `Content-Type: application/json; charset=utf-8`
 - **Authentication:** `X-Task-Notification-Token: <TASK_NOTIFICATION_TOKEN>` or `Authorization: Bearer <TASK_NOTIFICATION_TOKEN>`
 

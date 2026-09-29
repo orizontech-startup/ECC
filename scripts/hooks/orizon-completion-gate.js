@@ -32,9 +32,24 @@ function findNotifyRuntime() {
 function detectCompletionIntent(text) {
   if (!text || typeof text !== 'string') return null;
 
-  // Check for formal phase/stage completion markers
-  const isStageCompleted = /\b(etapa\s+conclu[ií]da|stage[\s_-]completed)\b/i.test(text);
-  const isPhaseCompleted = /\b(fase\s+conclu[ií]da|phase[\s_-]completed|miss[aã]o\s+conclu[ií]da)\b/i.test(text);
+  const lower = text.toLowerCase();
+
+  // 1. Exclui atividades intermediárias ou não-materiais
+  if (
+    lower.includes('ecc orizon carregado') ||
+    lower.includes('carregamento de ecc') ||
+    lower.includes('acabei de ler o ecc') ||
+    lower.includes('commit intermediário') ||
+    lower.includes('commit intermediario') ||
+    lower.includes('teste isolado') ||
+    lower.includes('checkpoint intermediário')
+  ) {
+    return null;
+  }
+
+  // 2. Check for formal phase/stage completion markers
+  const isStageCompleted = /\b(etapa\s+conclu[ií]da|stage[\s_-]completed|tarefa\s+conclu[ií]da)\b/i.test(text);
+  const isPhaseCompleted = /\b(fase\s+conclu[ií]da|phase[\s_-]completed|miss[aã]o\s+conclu[ií]da|milestone\s+conclu[ií]d[oa]|homologa[çc][aã]o\s+conclu[ií]d[oa]|entrega\s+conclu[ií]d[oa])\b/i.test(text);
 
   if (!isStageCompleted && !isPhaseCompleted) return null;
 
@@ -45,7 +60,7 @@ function detectCompletionIntent(text) {
   return {
     type: isPhaseCompleted ? 'phase-completed' : 'stage-completed',
     title: firstMeaningful.slice(0, 100).replace(/[#*`]/g, '').trim(),
-    summary: text.slice(0, 300).replace(/[#*`\n]/g, ' ').trim(),
+    summary: text.slice(0, 500).replace(/[#*`\n]/g, ' ').trim(),
   };
 }
 
